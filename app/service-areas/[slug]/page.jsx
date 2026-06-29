@@ -7,22 +7,22 @@ import { getLocation, locations, rightWayMapEmbedUrl, serviceAreas, services } f
 
 const serviceIcons = [Bug, Sprout, ShieldCheck, Waves, Home, BadgeCheck];
 
-const ponteVedraFaqs = [
+const getLocationFaqs = (name) => [
   {
-    question: 'Does RightWay provide lawn and pest control in Ponte Vedra?',
-    answer: 'Yes. RightWay serves Ponte Vedra homeowners with lawn care, pest control, termite control, mosquito control, and tree and shrub care.',
+    question: `Does RightWay provide lawn and pest control in ${name}?`,
+    answer: `Yes. RightWay serves ${name} homeowners with lawn care, pest control, termite control, mosquito control, and tree and shrub care.`,
   },
   {
-    question: 'Can I request a free quote for my Ponte Vedra home?',
-    answer: 'Yes. You can call RightWay or use the quote form to request service for your Ponte Vedra property.',
+    question: `Can I request a free quote for my ${name} home?`,
+    answer: `Yes. You can call RightWay or use the quote form to request service for your ${name} property.`,
   },
   {
     question: 'Do you offer follow-up support?',
     answer: 'Yes. RightWay provides responsive follow-up support and free callbacks when additional attention is needed between regular services.',
   },
   {
-    question: 'What pest issues are common in Ponte Vedra?',
-    answer: 'Ponte Vedra homes commonly deal with ants, roaches, mosquitoes, termites, spiders, and seasonal pest pressure caused by warm, humid weather.',
+    question: `What pest issues are common in ${name}?`,
+    answer: `${name} homes commonly deal with ants, roaches, mosquitoes, termites, spiders, and seasonal pest pressure caused by warm, humid weather.`,
   },
 ];
 
@@ -53,8 +53,9 @@ export default async function LocationPage({ params }) {
   }
 
   const quoteUrl = `https://wa.me/19042906400?text=${encodeURIComponent(`Hi RightWay, I would like a free quote for ${location.name}.`)}`;
+  const locationFaqs = getLocationFaqs(location.name);
 
-  if (location.slug === 'ponte-vedra') {
+  if (location) {
     return (
       <main>
         <Header />
@@ -62,10 +63,10 @@ export default async function LocationPage({ params }) {
           <div className="hero-overlay" />
           <div className="hero-inner">
             <div className="hero-copy">
-              <p className="eyebrow">Ponte Vedra Lawn & Pest Experts • Veteran-Owned</p>
-              <h1>Ponte Vedra&apos;s Trusted <span>Lawn & Pest Control</span> Team</h1>
+              <p className="eyebrow">{location.name} Lawn & Pest Experts • Veteran-Owned</p>
+              <h1>Trusted <span>Lawn & Pest Control</span> in {location.name}</h1>
               <p className="hero-text">
-                RightWay helps Ponte Vedra homeowners protect their lawns, homes, and outdoor spaces with dependable local lawn care and pest control service.
+                RightWay helps {location.name} homeowners protect their lawns, homes, and outdoor spaces with dependable local lawn care and pest control service.
               </p>
               <div className="hero-badges" aria-label="Company highlights">
                 <span>✓ Veteran-Owned</span>
@@ -80,8 +81,8 @@ export default async function LocationPage({ params }) {
 
             <form className="quote-card" id="quote">
               <div className="quote-card-header">
-                <h2>Request Ponte Vedra Service</h2>
-                <p>Fast scheduling from a local, veteran-owned team serving Ponte Vedra and Northeast Florida.</p>
+                <h2>Request {location.name} Service</h2>
+                <p>Fast scheduling from a local, veteran-owned team serving {location.name} and Northeast Florida.</p>
               </div>
               <label>
                 What Do You Need?
@@ -126,19 +127,19 @@ export default async function LocationPage({ params }) {
           <section className="location-feature-card">
             <div className="location-feature-copy">
               <p className="section-kicker">Your Local Pros</p>
-              <h2>Proudly Protecting Ponte Vedra Homes and Families</h2>
-              <p>RightWay understands the unique pest challenges in Northeast Florida and provides local, dependable service Ponte Vedra homeowners can count on.</p>
+              <h2>Proudly Protecting {location.name} Homes and Families</h2>
+              <p>RightWay understands the unique pest challenges in Northeast Florida and provides local, dependable service {location.name} homeowners can count on.</p>
               <ul>
-                <li><MapPin size={18} /> Local experts who know Ponte Vedra pest challenges</li>
+                <li><MapPin size={18} /> Local experts who know {location.name} pest challenges</li>
                 <li><ShieldCheck size={18} /> Safe treatments for kids, pets, and the environment</li>
                 <li><BadgeCheck size={18} /> Fast response times and reliable service</li>
                 <li><BadgeCheck size={18} /> Backed by our satisfaction guarantee</li>
               </ul>
             </div>
             <div className="location-feature-photo">
-              <img src="/assets/home-hero-hd.png" alt="Ponte Vedra service area" />
+              <img src="/assets/home-hero-hd.png" alt={`${location.name} service area`} />
               <div>
-                <strong>Top Pest Challenges in Ponte Vedra</strong>
+                <strong>Top Pest Challenges in {location.name}</strong>
                 <span>Ant infestations year-round</span>
                 <span>High humidity attracts roaches</span>
                 <span>Termite activity in warm, wet climates</span>
@@ -151,20 +152,20 @@ export default async function LocationPage({ params }) {
             <div className="ponte-nearby-card">
               <p className="section-kicker"><MapPin size={18} /> Local Experts. Neighborhood Focused.</p>
               <h2>Serving North Florida and Nearby Areas</h2>
-              <p>RightWay Pest Control is proud to protect homes and families across Ponte Vedra, North Florida, and surrounding communities with trusted, dependable pest solutions.</p>
+              <p>Dependable lawn and pest control for {location.name}, North Florida, and nearby communities.</p>
               <div className="ponte-nearby-benefits">
                 <article>
                   <span><Home size={38} strokeWidth={2.35} /></span>
                   <div>
                     <h3>Local Pest Knowledge</h3>
-                    <p>We understand the pests and pressures unique to Northeast Florida, so we treat the problem at the source.</p>
+                    <p>Treatments built around Northeast Florida pest pressure.</p>
                   </div>
                 </article>
                 <article>
                   <span><ShieldCheck size={38} strokeWidth={2.35} /></span>
                   <div>
                     <h3>Safe Plans. Reliable Service.</h3>
-                    <p>Our licensed technicians use safe, effective treatments and stand behind our work with service you can count on.</p>
+                    <p>Licensed technicians, clear communication, and dependable follow-up.</p>
                   </div>
                 </article>
               </div>
@@ -173,7 +174,7 @@ export default async function LocationPage({ params }) {
                 <a className="text-link" href="/service-areas">View Service Area</a>
               </div>
             </div>
-            <img src="/assets/pest-control.jpg" alt="RightWay technician serving Ponte Vedra homes" />
+            <img src="/assets/home-hero-hd.png" alt={`RightWay technician serving ${location.name} homes`} />
           </section>
 
           <div className="ponte-section-divider" aria-hidden="true"><span /></div>
@@ -181,38 +182,41 @@ export default async function LocationPage({ params }) {
           <section className="location-area-card">
             <div>
               <p className="section-kicker">All About</p>
-              <h2>Ponte Vedra, FL</h2>
-              <p>RightWay proudly serves Ponte Vedra and nearby communities with responsive lawn and pest control service backed by local knowledge and reliable scheduling.</p>
+              <h2>{location.name}, FL</h2>
+              <p>RightWay proudly serves {location.name} and nearby communities with responsive lawn and pest control service backed by local knowledge and reliable scheduling.</p>
               <div className="location-stats-row">
                 <span><GoogleLogo /><strong>900+</strong> Google reviews</span>
                 <span><Star size={18} fill="currentColor" /><strong>4.9</strong> local rating</span>
                 <span><Headphones size={19} /><strong>24/7</strong> support</span>
               </div>
             </div>
-            <img src="/assets/lawn-home.jpg" alt="Ponte Vedra neighborhood and lawn" />
+            <img src="/assets/lawn-home.jpg" alt={`${location.name} neighborhood and lawn`} />
           </section>
 
           <section className="pest-faq-section ponte-faq-section">
             <div className="pest-faq-copy">
               <p className="section-kicker">FAQs</p>
-              <h2>RightWay Questions, Answered</h2>
-              <p>Quick answers about Ponte Vedra service, scheduling, follow-up support, and common pest pressure.</p>
-              <div className="faq-benefit-grid" aria-label="FAQ benefits">
-                <span><strong>Honest Answers</strong></span>
-                <span><strong>Quick Response</strong></span>
-                <span><strong>Local & Trusted</strong></span>
-                <span><strong>Quality Work</strong></span>
+              <h2>RightWay <span>Questions,</span> Answered</h2>
+              <p>Quick answers about {location.name} service, scheduling, follow-up support, and common pest pressure.</p>
+              <div className="faq-help-card">
+                <span className="faq-help-icon" aria-hidden="true" />
+                <div>
+                  <strong>Need more help?</strong>
+                  <p>Our team is ready to assist you.</p>
+                  <a href="tel:9042906400">904-290-6400</a>
+                  <small>Mon - Fri: 8AM - 6PM | Sat: 9AM - 2PM</small>
+                </div>
               </div>
             </div>
-            <FaqList faqs={ponteVedraFaqs} />
+            <FaqList faqs={locationFaqs} />
           </section>
 
           <section className="areas ponte-map-pack" id="areas">
             <div className="areas-copy">
               <p className="section-kicker">Service Areas</p>
-              <h2>Ponte Vedra and North Florida Service Map</h2>
+              <h2>{location.name} and North Florida Service Map</h2>
               <p>
-                RightWay provides responsive lawn and pest control service across Ponte Vedra, North Florida, and nearby communities.
+                RightWay provides responsive lawn and pest control service across {location.name}, North Florida, and nearby communities.
               </p>
               <AreaTags areas={serviceAreas} />
               <a className="text-link" href="/service-areas">See All Service Areas</a>

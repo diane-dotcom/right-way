@@ -1,6 +1,6 @@
-import { MapPin, ShieldCheck, Star } from 'lucide-react';
+import { MapPin, Phone, ShieldCheck, Star } from 'lucide-react';
 import { Footer, Header } from '../components';
-import { locations, services } from '../services-data';
+import { locations, rightWayMapEmbedUrl } from '../services-data';
 
 export const metadata = {
   title: 'Service Areas | RightWay Lawn & Pest Control',
@@ -8,8 +8,6 @@ export const metadata = {
 };
 
 export default function ServiceAreasPage() {
-  const quoteUrl = 'https://wa.me/19042906400?text=Hi%20RightWay%2C%20I%20would%20like%20a%20free%20quote%20for%20my%20service%20area.';
-
   return (
     <main>
       <Header />
@@ -34,32 +32,22 @@ export default function ServiceAreasPage() {
             </div>
           </div>
         </div>
-        <form className="quote-card service-areas-quote-card" id="quote">
-          <div className="quote-card-header">
-            <h2>Request Service</h2>
-            <p>Fast scheduling from a local, veteran-owned team serving Northeast Florida.</p>
+        <div className="service-areas-map-visual" aria-label="RightWay service coverage map">
+          <iframe
+            src={rightWayMapEmbedUrl}
+            title="RightWay Integrated Lawn and Pest Control Solutions map"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+          />
+          <div className="service-areas-business-card">
+            <img src="/assets/logo.webp" alt="RightWay" />
+            <strong>RightWay Integrated Lawn and Pest Control Solutions</strong>
+            <span><MapPin size={16} /> 6825 Philips Industrial Blvd, Suite 1</span>
+            <span><Phone size={16} /> (904) 290-6400</span>
+            <span><ShieldCheck size={16} /> Licensed & Insured</span>
           </div>
-          <label>
-            What Do You Need?
-            <select defaultValue="Pest Control">
-              {services.map((service) => <option key={service.slug}>{service.shortTitle}</option>)}
-            </select>
-          </label>
-          <label>
-            Full Name
-            <input type="text" />
-          </label>
-          <label>
-            Phone
-            <input type="tel" />
-          </label>
-          <label>
-            Address
-            <input type="text" />
-          </label>
-          <a className="quote-card-action" href={quoteUrl} target="_blank" rel="noreferrer">Get My Free Quote</a>
-          <p className="fine-print">Licensed & insured · No-obligation quote</p>
-        </form>
+        </div>
       </section>
 
       <Footer />

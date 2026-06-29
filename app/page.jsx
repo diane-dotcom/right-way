@@ -160,13 +160,16 @@ export default function Home() {
       <section className="faq-section">
         <div className="pest-faq-copy">
           <p className="section-kicker">FAQs</p>
-          <h2>RightWay Questions, Answered</h2>
+          <h2>RightWay <span>Questions,</span> Answered</h2>
           <p>Quick answers about services, service areas, quotes, and follow-up support.</p>
-          <div className="faq-benefit-grid" aria-label="FAQ benefits">
-            <span><strong>Honest Answers</strong></span>
-            <span><strong>Quick Response</strong></span>
-            <span><strong>Local & Trusted</strong></span>
-            <span><strong>Quality Work</strong></span>
+          <div className="faq-help-card">
+            <span className="faq-help-icon" aria-hidden="true" />
+            <div>
+              <strong>Need more help?</strong>
+              <p>Our team is ready to assist you.</p>
+              <a href="tel:9042906400">904-290-6400</a>
+              <small>Mon - Fri: 8AM - 6PM | Sat: 9AM - 2PM</small>
+            </div>
           </div>
         </div>
         <FaqList faqs={homeFaqs} />
