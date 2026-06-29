@@ -227,7 +227,7 @@ img {
   padding: 95px 0 80px;
   background:
     linear-gradient(90deg, rgba(2, 18, 34, 0.93), rgba(1, 58, 114, 0.75) 44%, rgba(5, 5, 5, 0.25)),
-    url('/assets/lawn-home.jpg') center / cover;
+    url('/assets/home-hero-hd.png') center / cover;
   overflow: hidden;
 }
 
@@ -645,30 +645,33 @@ h1 span,
 }
 
 .pest-protection-features {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .pest-protection-features article {
-  min-height: 92px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 16px;
-  padding: 20px 22px;
-  background: #fff;
-  border: 1px solid #dce5eb;
-  border-radius: 12px;
+  gap: 8px;
+  padding: 10px 13px;
+  color: #071929;
+  background: #eef5ff;
+  border: 1px solid #d6e5f7;
+  border-radius: 999px;
 }
 
 .pest-protection-features svg {
   flex: 0 0 auto;
   color: #0753c7;
+  width: 18px;
+  height: 18px;
 }
 
 .pest-protection-features strong {
   color: #071929;
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: 800;
 }
 
 .pest-protection-photo img {
@@ -717,39 +720,54 @@ h1 span,
 }
 
 .pest-related-section {
-  width: min(1180px, calc(100% - 48px));
-  padding: 24px 0 58px;
+  width: min(1280px, calc(100% - 48px));
+  padding: 36px 0 70px;
   text-align: center;
 }
 
 .pest-related-section .service-grid {
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  margin-top: 28px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 26px;
+  margin-top: 34px;
 }
 
 .pest-related-section .service-card {
+  grid-column: span 2;
   text-align: left;
 }
 
+.pest-related-section .service-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.pest-related-section .service-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
 .pest-related-section .service-card img {
-  height: 125px;
+  height: 205px;
 }
 
 .pest-related-section .service-card div {
-  padding: 18px;
+  padding: 24px;
 }
 
 .pest-related-section .service-card h3 {
-  font-size: 18px;
+  font-size: 23px;
 }
 
 .pest-related-section .service-card p {
-  display: none;
+  display: block;
 }
 
 .service-areas-block {
-  margin-top: 10px;
+  width: min(1280px, calc(100% - 48px));
+  grid-template-columns: 0.85fr 1.15fr;
+  margin-top: 40px;
+}
+
+.pest-why-block + .service-areas-block {
+  margin-top: 86px;
 }
 
 .pest-inspo-hero {
@@ -859,17 +877,17 @@ h1 span,
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 34px;
-  margin-top: 36px;
+  gap: 44px;
+  margin-top: 46px;
 }
 
 .pest-process-timeline::before {
   content: '';
   position: absolute;
-  top: 52px;
-  left: 10%;
-  right: 10%;
-  border-top: 2px dashed #d7dde5;
+  top: 76px;
+  left: 11%;
+  right: 11%;
+  border-top: 4px dashed #b9c7d4;
   z-index: 0;
 }
 
@@ -878,24 +896,24 @@ h1 span,
   z-index: 1;
   display: grid;
   justify-items: center;
-  padding: 18px 16px 8px;
-  background: #fff;
+  padding: 22px 14px 8px;
 }
 
 .pest-process-timeline article small {
   position: absolute;
-  top: 0;
-  right: 24%;
-  width: 24px;
-  height: 24px;
+  top: 2px;
+  right: 22%;
+  width: 30px;
+  height: 30px;
   display: grid;
   place-items: center;
   color: #fff;
   background: var(--red);
   border-radius: 999px;
   font-family: Sora, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
+  z-index: 3;
 }
 
 .pest-process-grid article,
@@ -908,14 +926,16 @@ h1 span,
 }
 
 .pest-process-icon {
-  width: 108px;
-  height: 108px;
+  position: relative;
+  z-index: 2;
+  width: 132px;
+  height: 132px;
   display: inline-grid;
   place-items: center;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
   color: var(--red);
   background: #fbfbfc;
-  border: 1px solid #eef1f5;
+  border: 3px solid #eef1f5;
   border-radius: 999px;
   font-family: Sora, sans-serif;
   font-weight: 800;
@@ -929,7 +949,7 @@ h1 span,
 .pest-process-timeline h3,
 .pest-why-grid h3 {
   color: #071929;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .pest-process-timeline p,
@@ -939,9 +959,9 @@ h1 span,
 }
 
 .pest-process-timeline p {
-  max-width: 210px;
+  max-width: 250px;
   margin: 0 auto;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .map-pack-card {
@@ -1003,13 +1023,64 @@ h1 span,
 .pest-why-block {
   width: 100%;
   max-width: none;
+  position: relative;
+  overflow: hidden;
   padding-left: max(24px, calc((100vw - 1180px) / 2));
   padding-right: max(24px, calc((100vw - 1180px) / 2));
-  background: #f1f5f6;
+  color: #071929;
+  background: linear-gradient(180deg, #fff 0%, #f7fafc 100%);
+}
+
+.pest-why-block h2 {
+  color: #071929;
+}
+
+.pest-why-block h2 {
+  text-shadow: none;
 }
 
 .pest-why-grid {
   grid-template-columns: repeat(4, 1fr);
+}
+
+.pest-why-grid article {
+  position: relative;
+  overflow: hidden;
+  min-height: 230px;
+  padding: 34px 28px;
+  color: #fff;
+  background: linear-gradient(145deg, #0753c7 0%, #013a72 100%);
+  border: 1px solid rgba(1, 58, 114, 0.18);
+  box-shadow: 0 24px 44px rgba(1, 58, 114, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transform: perspective(900px) rotateX(0deg) translateY(0);
+}
+
+.pest-why-grid article::before {
+  content: '';
+  position: absolute;
+  top: -72px;
+  left: -58px;
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+}
+
+.pest-why-grid article:hover {
+  transform: perspective(900px) rotateX(3deg) translateY(-6px);
+  box-shadow: 0 30px 54px rgba(0, 23, 56, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.pest-why-grid h3 {
+  position: relative;
+  color: #fff;
+  font-size: 24px;
+}
+
+.pest-why-grid p {
+  position: relative;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 16px;
 }
 
 .pest-chip-grid {
@@ -1118,12 +1189,31 @@ h1 span,
   margin: 25px 0;
 }
 
+.area-tags button,
 .area-tags span {
   padding: 12px 15px;
+  color: #071929;
   background: #fff;
   border: 1px solid #dce5eb;
   border-radius: 999px;
+  font: inherit;
   font-weight: 800;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.area-tags button:hover,
+.area-tags button.active,
+.area-tags button[aria-pressed='true'] {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.area-tags button:focus-visible {
+  outline: 3px solid rgba(213, 4, 14, 0.28);
+  outline-offset: 3px;
 }
 
 .areas img {
@@ -1132,6 +1222,10 @@ h1 span,
   object-fit: cover;
   border-radius: 20px;
   box-shadow: var(--shadow);
+}
+
+.area-map-card .map-pack-map iframe {
+  height: 530px;
 }
 
 .final-cta {
@@ -1153,6 +1247,83 @@ h1 span,
   margin: 18px auto 30px;
   color: rgba(255, 255, 255, 0.9);
   font-size: 18px;
+  line-height: 1.7;
+}
+
+.faq-section,
+.pest-faq-section {
+  width: min(1180px, calc(100% - 48px));
+  margin: 80px auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 52px;
+  align-items: start;
+}
+
+.pest-faq-copy h2 {
+  color: #071929;
+  font-size: clamp(34px, 4vw, 52px);
+  letter-spacing: -0.04em;
+}
+
+.pest-faq-copy p:not(.section-kicker) {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.pest-faq-list {
+  display: grid;
+  gap: 14px;
+}
+
+.pest-faq-list details {
+  background: #fff;
+  border: 1px solid #dce5eb;
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(1, 58, 114, 0.08);
+}
+
+.pest-faq-list summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 24px;
+  color: #071929;
+  font-family: Sora, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none;
+}
+
+.pest-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.pest-faq-list summary::after {
+  content: '+';
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+}
+
+.pest-faq-list details[open] summary::after {
+  content: '-';
+  background: var(--red);
+}
+
+.pest-faq-list details p {
+  margin: 0;
+  padding: 0 24px 24px;
+  color: var(--muted);
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -1219,6 +1390,8 @@ h1 span,
   .hero-inner,
   .reviews,
   .areas,
+  .faq-section,
+  .pest-faq-section,
   .pest-protection-section,
   .service-hero,
   .service-detail {
@@ -1237,6 +1410,11 @@ h1 span,
     min-height: 390px;
   }
 
+  .faq-section,
+  .pest-faq-section {
+    gap: 30px;
+  }
+
   .trust-bar,
   .service-grid,
   .pest-process-timeline,
@@ -1253,6 +1431,12 @@ h1 span,
   .pest-related-section .service-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .pest-related-section .service-card,
+  .pest-related-section .service-card:nth-child(4),
+  .pest-related-section .service-card:nth-child(5) {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1262,6 +1446,13 @@ h1 span,
     grid-template-columns: 1fr;
     padding: 12px 0;
     gap: 12px;
+  }
+
+  .logo,
+  .header-cta,
+  .phone-mini {
+    justify-self: center;
+    text-align: center;
   }
 
   .logo img {
@@ -1293,6 +1484,8 @@ h1 span,
   .hero-inner,
   .section,
   .areas,
+  .faq-section,
+  .pest-faq-section,
   .pest-protection-section,
   .service-hero {
     width: calc(100% - 28px);
@@ -1300,6 +1493,32 @@ h1 span,
 
   .hero-inner {
     gap: 35px;
+    text-align: center;
+  }
+
+  .hero-copy,
+  .service-hero-copy,
+  .pest-protection-copy,
+  .pest-faq-copy,
+  .areas-copy,
+  .service-related,
+  .pest-related-section,
+  .final-cta {
+    text-align: center;
+  }
+
+  .hero-copy h1,
+  .hero-text,
+  .service-hero-copy h1,
+  .service-hero-copy p,
+  .pest-protection-copy h2,
+  .pest-protection-copy p,
+  .pest-faq-copy h2,
+  .pest-faq-copy p,
+  .areas-copy h2,
+  .areas-copy p {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-text {
@@ -1310,6 +1529,20 @@ h1 span,
   .header-cta {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .hero-badges,
+  .pest-inspo-hero .hero-badges,
+  .pest-protection-features,
+  .area-tags {
+    justify-content: center;
+  }
+
+  .pest-protection-features article,
+  .area-tags button,
+  .area-tags span {
+    justify-content: center;
+    text-align: center;
   }
 
   .primary-action,
@@ -1328,6 +1561,12 @@ h1 span,
 
   .pest-related-section .service-grid {
     grid-template-columns: 1fr;
+  }
+
+  .pest-related-section .service-card,
+  .pest-related-section .service-card:nth-child(4),
+  .pest-related-section .service-card:nth-child(5) {
+    grid-column: auto;
   }
 
   .pest-process-timeline {
@@ -1354,16 +1593,23 @@ h1 span,
   }
 
   .areas {
+    gap: 28px;
     padding: 28px;
+    text-align: center;
   }
 
   .areas img {
     min-height: 280px;
   }
 
+  .area-map-card .map-pack-map iframe {
+    height: 360px;
+  }
+
   .service-hero {
     padding: 48px 0 36px;
     gap: 30px;
+    text-align: center;
   }
 
   .service-hero-copy p:not(.eyebrow) {
@@ -1389,6 +1635,12 @@ h1 span,
     padding: 28px;
     gap: 28px;
     border-radius: 20px;
+    text-align: center;
+  }
+
+  .pest-protection-mark {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .pest-protection-copy p {
@@ -1396,11 +1648,31 @@ h1 span,
   }
 
   .pest-protection-features {
-    grid-template-columns: 1fr;
+    justify-content: center;
   }
 
   .pest-protection-photo img {
     min-height: 300px;
+  }
+
+  .faq-section,
+  .pest-faq-section {
+    margin: 52px auto;
+    text-align: center;
+  }
+
+  .pest-faq-list summary {
+    padding: 18px;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .pest-faq-list details p {
+    text-align: left;
+  }
+
+  .pest-faq-list details p {
+    padding: 0 18px 18px;
   }
 
   .pest-process-block,
@@ -1411,6 +1683,13 @@ h1 span,
 
   .pest-why-block {
     padding: 44px 14px;
+    text-align: center;
+  }
+
+  .pest-why-grid article,
+  .service-card,
+  .service-card div {
+    text-align: center;
   }
 
   .pest-help-cta {

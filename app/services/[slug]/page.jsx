@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation';
 import { ArrowRight, BadgeCheck, Bug, ClipboardCheck, RotateCcw, Search, ShieldCheck } from 'lucide-react';
+import { AreaTags } from '../../area-tags';
 import { Footer, Header, ReviewsStrip, Stars } from '../../components';
-import { getService, serviceAreas, services } from '../../services-data';
+import { getService, rightWayMapEmbedUrl, serviceAreas, services } from '../../services-data';
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -45,7 +46,28 @@ export default async function ServicePage({ params }) {
     { label: 'Long-Term Prevention', icon: RotateCcw },
   ];
   const processIcons = [Search, Bug, ClipboardCheck, ShieldCheck];
-  const mapPackAreas = ['Ponte Vedra', 'St. Augustine', 'Nocatee'];
+  const pestFaqs = [
+    {
+      question: 'How often should I schedule pest control service?',
+      answer: 'Most homes benefit from recurring pest control service every other month or quarterly, depending on the pest pressure around the property and the season.',
+    },
+    {
+      question: 'Are your pest control treatments safe for families and pets?',
+      answer: 'RightWay uses targeted, family-conscious treatment methods and gives clear preparation and re-entry guidance before and after service.',
+    },
+    {
+      question: 'What pests do you treat for?',
+      answer: 'We help with common Northeast Florida pests including ants, cockroaches, spiders, rodents, mosquitoes, termites, and other household pest issues.',
+    },
+    {
+      question: 'Do you inspect before treating?',
+      answer: 'Yes. Each service starts with a detailed inspection so the treatment plan is based on where pests are active and how they are getting in.',
+    },
+    {
+      question: 'What happens if pests come back?',
+      answer: 'RightWay offers responsive follow-up support and free callbacks when additional attention is needed between regular services.',
+    },
+  ];
 
   return (
     <main>
@@ -181,7 +203,6 @@ export default async function ServicePage({ params }) {
           </section>
 
           <section className="pest-why-block">
-            <p className="section-kicker">Why Choose RightWay</p>
             <h2>Why Choose RightWay Pest Control?</h2>
             <div className="pest-why-grid">
               {service.whyChoose.map((item) => (
@@ -193,21 +214,6 @@ export default async function ServicePage({ params }) {
             </div>
           </section>
 
-          <section className="pest-common-block">
-            <p className="section-kicker">Common Pests</p>
-            <h2>Common Pests We Control</h2>
-            <div className="pest-chip-grid">
-              {service.commonPests.map((pest) => <span key={pest}>{pest}</span>)}
-            </div>
-          </section>
-
-          <section className="pest-help-cta">
-            <div>
-              <p className="section-kicker">Need Immediate Assistance?</p>
-              <h2>See where RightWay provides fast pest control service across Northeast Florida.</h2>
-            </div>
-            <a className="secondary-action" href="/#areas">View Service Area <ArrowRight size={18} strokeWidth={2.6} /></a>
-          </section>
         </>
       )}
 
@@ -235,34 +241,19 @@ export default async function ServicePage({ params }) {
           <p className="section-kicker">Service Areas</p>
           <h2>Serving St. Johns County and Surrounding Communities</h2>
           <p>RightWay provides {service.shortTitle.toLowerCase()} service across Northeast Florida with local knowledge and responsive scheduling.</p>
-          <div className="area-tags">
-            {serviceAreas.map((area) => <span key={area}>{area}</span>)}
+          <AreaTags areas={serviceAreas} />
+        </div>
+        <div className="map-pack-card area-map-card" aria-label="RightWay service area map">
+          <div className="map-pack-map">
+            <iframe
+              src={rightWayMapEmbedUrl}
+              title="RightWay Integrated Lawn and Pest Control Solutions map"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
           </div>
         </div>
-        {isPestControl ? (
-          <div className="map-pack-card" aria-label="RightWay service area map pack">
-            <div className="map-pack-map">
-              <iframe
-                src="https://www.google.com/maps?q=St.%20Johns%20County%20Florida&output=embed"
-                title="RightWay service area map"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-            <div className="map-pack-results">
-              <span className="map-pack-label">Local Map Pack</span>
-              <h3>{service.shortTitle} Near You</h3>
-              {mapPackAreas.map((area) => (
-                <a key={area} href={`https://www.google.com/maps/search/${encodeURIComponent(`${service.shortTitle} ${area} FL`)}`} target="_blank" rel="noreferrer">
-                  <strong>RightWay {service.shortTitle}</strong>
-                  <small>{area}, FL · Call (904) 290-6400</small>
-                </a>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <img src="/assets/lawn-home.jpg" alt="Florida home with green lawn" />
-        )}
       </section>
 
       <section className="final-cta">
@@ -274,6 +265,24 @@ export default async function ServicePage({ params }) {
           <a className="secondary-action" href={quoteUrl} target="_blank" rel="noreferrer">Get Free Quote</a>
         </div>
       </section>
+
+      {isPestControl && (
+        <section className="pest-faq-section">
+          <div className="pest-faq-copy">
+            <p className="section-kicker">FAQs</p>
+            <h2>Pest Control Questions, Answered</h2>
+            <p>Get quick answers about scheduling, safety, inspections, and ongoing protection for your home.</p>
+          </div>
+          <div className="pest-faq-list">
+            {pestFaqs.map((faq) => (
+              <details key={faq.question}>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       <Footer />
     </main>

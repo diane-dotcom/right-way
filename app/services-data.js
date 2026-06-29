@@ -102,6 +102,8 @@ export const serviceAreas = [
   'Jacksonville Beaches',
 ];
 
+export const rightWayMapEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3449.651199291!2d-81.52985488819974!3d30.16138681291453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e433c97b9c53fb%3A0x6deca2b978ad5e11!2sRightWay%20Integrated%20Lawn%20and%20Pest%20Control%20Solutions!5e0!3m2!1sen!2sph!4v1782748534488!5m2!1sen!2sph';
+
 export const footerLinks = ['Home', 'About Us', 'Services', 'Service Areas', 'Review', 'Guarantee', 'Contact Us'];
 
 export function getService(slug) {

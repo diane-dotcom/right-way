@@ -1,7 +1,31 @@
 import { Footer, Header, ReviewsStrip, Stars } from './components';
-import { serviceAreas, services } from './services-data';
+import { AreaTags } from './area-tags';
+import { rightWayMapEmbedUrl, serviceAreas, services } from './services-data';
 
 const homeQuoteUrl = 'https://wa.me/19042906400?text=Hi%20RightWay%2C%20I%20would%20like%20a%20free%20quote.';
+
+const homeFaqs = [
+  {
+    question: 'What services does RightWay provide?',
+    answer: 'RightWay provides lawn care, pest control, termite control, mosquito control, tree and shrub care, and pump protection for Northeast Florida properties.',
+  },
+  {
+    question: 'What areas do you serve?',
+    answer: 'We serve St. Johns County and surrounding communities including Ponte Vedra, Ponte Vedra Beach, St. Augustine, Nocatee, Silverleaf, and the Jacksonville Beaches.',
+  },
+  {
+    question: 'Can I request a free quote?',
+    answer: 'Yes. You can call RightWay or request a free quote online, and the team will help match you with the right lawn or pest control service.',
+  },
+  {
+    question: 'Is RightWay licensed and insured?',
+    answer: 'Yes. RightWay is licensed and insured, and the team focuses on dependable service, clear communication, and long-term property protection.',
+  },
+  {
+    question: 'Do you offer follow-up support?',
+    answer: 'Yes. RightWay provides responsive follow-up support and free callbacks when additional attention is needed between regular services.',
+  },
+];
 
 export default function Home() {
   return (
@@ -121,12 +145,20 @@ export default function Home() {
             From Ponte Vedra to St. Augustine and everywhere in between, RightWay Lawn & Pest Control keeps your lawn healthy
             and your home protected across St. Johns County and surrounding beaches.
           </p>
-          <div className="area-tags">
-            {serviceAreas.map((area) => <span key={area}>{area}</span>)}
-          </div>
+          <AreaTags areas={serviceAreas} />
           <a className="text-link" href="#quote">See All Service Areas</a>
         </div>
-        <img src="/assets/lawn-home.jpg" alt="Florida home with green lawn" />
+        <div className="map-pack-card area-map-card" aria-label="RightWay service area map">
+          <div className="map-pack-map">
+            <iframe
+              src={rightWayMapEmbedUrl}
+              title="RightWay Integrated Lawn and Pest Control Solutions map"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+          </div>
+        </div>
       </section>
 
       <section className="final-cta">
@@ -136,6 +168,22 @@ export default function Home() {
         <div className="hero-actions centered">
           <a className="primary-action" href="tel:9042906400">Call (904) 290-6400</a>
           <a className="secondary-action" href="#quote">Get Free Quote</a>
+        </div>
+      </section>
+
+      <section className="faq-section">
+        <div className="pest-faq-copy">
+          <p className="section-kicker">FAQs</p>
+          <h2>RightWay Questions, Answered</h2>
+          <p>Quick answers about services, service areas, quotes, and follow-up support.</p>
+        </div>
+        <div className="pest-faq-list">
+          {homeFaqs.map((faq) => (
+            <details key={faq.question}>
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
         </div>
       </section>
 
