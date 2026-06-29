@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { ArrowRight, BadgeCheck, Bug, ClipboardCheck, RotateCcw, Search, ShieldCheck } from 'lucide-react';
 import { AreaTags } from '../../area-tags';
 import { Footer, Header } from '../../components';
+import { FaqList } from '../../faq-list';
 import { getService, rightWayMapEmbedUrl, serviceAreas, services } from '../../services-data';
 
 export function generateStaticParams() {
@@ -51,20 +52,50 @@ export default async function ServicePage({ params }) {
     <main>
       <Header />
 
-      <section className="service-hero pest-inspo-hero" style={{ '--service-hero-image': `url('${heroImage}')` }}>
-        <div className="service-hero-copy">
-          <p className="eyebrow">{service.eyebrow}</p>
-          <h1>{service.heading}</h1>
-          <p>{service.intro}</p>
-          <div className="hero-badges" aria-label="Service highlights">
-            {trustBadges.map(({ label, icon: Icon }) => (
-              <span key={label}><Icon size={18} strokeWidth={2.4} /> {label}</span>
-            ))}
+      <section className="hero service-page-hero" style={{ '--service-hero-image': `url('${heroImage}')` }}>
+        <div className="hero-overlay" />
+        <div className="hero-inner">
+          <div className="hero-copy service-hero-copy">
+            <p className="eyebrow">{service.eyebrow}</p>
+            <h1>{service.heading}</h1>
+            <p>{service.intro}</p>
+            <div className="hero-badges" aria-label="Service highlights">
+              {trustBadges.map(({ label, icon: Icon }) => (
+                <span key={label}><Icon size={18} strokeWidth={2.4} /> {label}</span>
+              ))}
+            </div>
+            <div className="hero-actions">
+              <a className="primary-action" href="tel:9042906400">Call (904) 290-6400</a>
+              <a className="secondary-action" href="/service-areas">View Service Area <ArrowRight size={18} strokeWidth={2.6} /></a>
+            </div>
           </div>
-          <div className="hero-actions">
-            <a className="primary-action" href="tel:9042906400">Call (904) 290-6400</a>
-            <a className="secondary-action" href="/#areas">View Service Area <ArrowRight size={18} strokeWidth={2.6} /></a>
-          </div>
+
+          <form className="quote-card" id="quote">
+            <div className="quote-card-header">
+              <h2>Request {service.shortTitle}</h2>
+              <p>Fast scheduling from a local, veteran-owned team serving Northeast Florida.</p>
+            </div>
+            <label>
+              What Do You Need?
+              <select defaultValue={service.shortTitle}>
+                {services.map((item) => <option key={item.slug}>{item.shortTitle}</option>)}
+              </select>
+            </label>
+            <label>
+              Full Name
+              <input type="text" />
+            </label>
+            <label>
+              Phone
+              <input type="tel" />
+            </label>
+            <label>
+              Address
+              <input type="text" />
+            </label>
+            <a className="quote-card-action" href={quoteUrl} target="_blank" rel="noreferrer">Get My Free Quote</a>
+            <p className="fine-print">Licensed & insured · No-obligation quote</p>
+          </form>
         </div>
       </section>
 
@@ -169,17 +200,10 @@ export default async function ServicePage({ params }) {
       <section className="pest-faq-section">
         <div className="pest-faq-copy">
           <p className="section-kicker">FAQs</p>
-          <h2>{service.shortTitle} Questions, Answered</h2>
+          <h2>RightWay Questions, Answered</h2>
           <p>Get quick answers about scheduling, inspections, service expectations, and ongoing support.</p>
         </div>
-        <div className="pest-faq-list">
-          {service.faqs.map((faq) => (
-            <details key={faq.question}>
-              <summary>{faq.question}</summary>
-              <p>{faq.answer}</p>
-            </details>
-          ))}
-        </div>
+        <FaqList faqs={service.faqs} />
       </section>
 
       <Footer />

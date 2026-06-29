@@ -1,6 +1,6 @@
-import { AreaTags } from '../area-tags';
+import { MapPin, ShieldCheck, Star } from 'lucide-react';
 import { Footer, Header } from '../components';
-import { locations, rightWayMapEmbedUrl, serviceAreas } from '../services-data';
+import { locations, services } from '../services-data';
 
 export const metadata = {
   title: 'Service Areas | RightWay Lawn & Pest Control',
@@ -8,49 +8,58 @@ export const metadata = {
 };
 
 export default function ServiceAreasPage() {
+  const quoteUrl = 'https://wa.me/19042906400?text=Hi%20RightWay%2C%20I%20would%20like%20a%20free%20quote%20for%20my%20service%20area.';
+
   return (
     <main>
       <Header />
-      <section className="location-hero">
-        <p className="eyebrow">Local Service Areas</p>
-        <h1>RightWay Lawn & Pest Control Near You</h1>
-        <p>Explore the Northeast Florida communities we serve with dependable lawn care, pest control, termite protection, mosquito control, and landscape health services.</p>
-      </section>
-
-      <section className="areas service-areas-block location-main-areas">
-        <div className="areas-copy">
-          <p className="section-kicker">Service Areas</p>
-          <h2>Proudly Serving Northeast Florida Communities</h2>
-          <p>
-            From Ponte Vedra to St. Augustine and everywhere in between, RightWay Lawn & Pest Control keeps your lawn healthy
-            and your home protected across St. Johns County and surrounding beaches.
-          </p>
-          <AreaTags areas={serviceAreas} />
-        </div>
-        <div className="map-pack-card area-map-card" aria-label="RightWay service area map">
-          <div className="map-pack-map">
-            <iframe
-              src={rightWayMapEmbedUrl}
-              title="RightWay Integrated Lawn and Pest Control Solutions map"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
+      <section className="service-areas-hero">
+        <div className="service-areas-hero-copy">
+          <p className="eyebrow"><MapPin size={18} strokeWidth={2.8} /> Service Areas</p>
+          <h1>Serving Florida and <span>Surrounding Communities</span></h1>
+          <p>RightWay provides lawn and pest control service across Northeast Florida with local knowledge, responsive scheduling, and dependable follow-through.</p>
+          <div className="service-area-pills">
+            {locations.map((location) => (
+              <a href={`/service-areas/${location.slug}`} key={location.slug}>
+                <MapPin size={17} strokeWidth={2.7} />
+                {location.name}
+              </a>
+            ))}
+          </div>
+          <div className="service-areas-trust-card">
+            <ShieldCheck size={58} strokeWidth={2.2} />
+            <div>
+              <strong>Trusted by 1,000+ Northeast Florida homeowners and businesses.</strong>
+              <span><Star size={16} fill="currentColor" /> <Star size={16} fill="currentColor" /> <Star size={16} fill="currentColor" /> <Star size={16} fill="currentColor" /> <Star size={16} fill="currentColor" /> 4.9/5 rating</span>
+            </div>
           </div>
         </div>
-      </section>
-
-      <section className="location-grid-section">
-        <p className="section-kicker">Locations</p>
-        <h2>Choose Your Community</h2>
-        <div className="location-card-grid">
-          {locations.map((location) => (
-            <a className="location-card" href={`/service-areas/${location.slug}`} key={location.slug}>
-              <span>{location.name}</span>
-              <p>{location.description}</p>
-            </a>
-          ))}
-        </div>
+        <form className="quote-card service-areas-quote-card" id="quote">
+          <div className="quote-card-header">
+            <h2>Request Service</h2>
+            <p>Fast scheduling from a local, veteran-owned team serving Northeast Florida.</p>
+          </div>
+          <label>
+            What Do You Need?
+            <select defaultValue="Pest Control">
+              {services.map((service) => <option key={service.slug}>{service.shortTitle}</option>)}
+            </select>
+          </label>
+          <label>
+            Full Name
+            <input type="text" />
+          </label>
+          <label>
+            Phone
+            <input type="tel" />
+          </label>
+          <label>
+            Address
+            <input type="text" />
+          </label>
+          <a className="quote-card-action" href={quoteUrl} target="_blank" rel="noreferrer">Get My Free Quote</a>
+          <p className="fine-print">Licensed & insured · No-obligation quote</p>
+        </form>
       </section>
 
       <Footer />

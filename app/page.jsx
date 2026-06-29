@@ -1,5 +1,6 @@
-import { Footer, Header, ReviewsStrip, Stars } from './components';
+import { Footer, GoogleReviews, Header, ReviewsStrip } from './components';
 import { AreaTags } from './area-tags';
+import { FaqList } from './faq-list';
 import { rightWayMapEmbedUrl, serviceAreas, services } from './services-data';
 
 const homeQuoteUrl = 'https://wa.me/19042906400?text=Hi%20RightWay%2C%20I%20would%20like%20a%20free%20quote.';
@@ -7,7 +8,7 @@ const homeQuoteUrl = 'https://wa.me/19042906400?text=Hi%20RightWay%2C%20I%20woul
 const homeFaqs = [
   {
     question: 'What services does RightWay provide?',
-    answer: 'RightWay provides lawn care, pest control, termite control, mosquito control, tree and shrub care, and pump protection for Northeast Florida properties.',
+    answer: 'RightWay provides lawn care, pest control, termite control, mosquito control, and tree and shrub care for Northeast Florida properties.',
   },
   {
     question: 'What areas do you serve?',
@@ -59,10 +60,6 @@ export default function Home() {
               <h2>Request Your Service</h2>
               <p>Fast scheduling from a local, veteran-owned team serving Northeast Florida.</p>
             </div>
-            <div className="rating-box">
-              <Stars />
-              <span><strong>4.8</strong> / 5 • 900+ Google reviews</span>
-            </div>
             <label>
               What Do You Need?
               <select defaultValue="Pest Control">
@@ -85,15 +82,28 @@ export default function Home() {
             <p className="fine-print">Licensed & insured · No-obligation quote</p>
           </form>
         </div>
+
+        <section className="trust-bar" id="about" aria-label="Trust markers">
+          <span>Veteran Owned</span>
+          <span>Locally Operated</span>
+          <span>Free Service Callbacks</span>
+          <span>900+ Google Reviews</span>
+          <span>St. Johns County & Surrounding Areas</span>
+        </section>
       </section>
 
-      <section className="trust-bar" id="about" aria-label="Trust markers">
-        <span>Veteran Owned</span>
-        <span>Locally Operated</span>
-        <span>Free Service Callbacks</span>
-        <span>900+ Google Reviews</span>
-        <span>St. Johns County & Surrounding Areas</span>
+      <section className="section why-home-section">
+        <p className="section-kicker">Why Choose RightWay</p>
+        <h2>Why Homeowners Choose the RightWay</h2>
+        <ul className="why-list">
+          <li><strong>Veteran-Owned Values</strong> We show up on time, do quality work, and treat customers with respect.</li>
+          <li><strong>Local Expertise</strong> We understand Northeast Florida pest and lawn challenges.</li>
+          <li><strong>Higher-Touch Service</strong> You are never just another stop on a route.</li>
+          <li><strong>Free Callbacks</strong> Need additional attention? We come back and make it right.</li>
+        </ul>
       </section>
+
+      <GoogleReviews />
 
       <section className="section services" id="services">
         <p className="section-kicker">Our Services</p>
@@ -110,30 +120,6 @@ export default function Home() {
               </div>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="section reviews" id="reviews">
-        <div>
-          <p className="section-kicker">Real Customers</p>
-          <h2>What Northeast Florida Customers Are Saying</h2>
-          <div className="review-card">
-            <Stars />
-            <p>
-              “Reliable, professional, and easy to work with. The lawn looks better and the pest issues were handled quickly.”
-            </p>
-            <strong>Local Homeowner</strong>
-          </div>
-        </div>
-        <div>
-          <p className="section-kicker">Why Choose Rightway</p>
-          <h2>Why Homeowners Choose the RightWay</h2>
-          <ul className="why-list">
-            <li><strong>Veteran-Owned Values</strong> We show up on time, do quality work, and treat customers with respect.</li>
-            <li><strong>Local Expertise</strong> We understand Northeast Florida pest and lawn challenges.</li>
-            <li><strong>Higher-Touch Service</strong> You are never just another stop on a route.</li>
-            <li><strong>Free Callbacks</strong> Need additional attention? We come back and make it right.</li>
-          </ul>
         </div>
       </section>
 
@@ -177,14 +163,7 @@ export default function Home() {
           <h2>RightWay Questions, Answered</h2>
           <p>Quick answers about services, service areas, quotes, and follow-up support.</p>
         </div>
-        <div className="pest-faq-list">
-          {homeFaqs.map((faq) => (
-            <details key={faq.question}>
-              <summary>{faq.question}</summary>
-              <p>{faq.answer}</p>
-            </details>
-          ))}
-        </div>
+        <FaqList faqs={homeFaqs} />
       </section>
 
       <Footer />

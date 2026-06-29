@@ -36,7 +36,7 @@ export const services = [
     slug: 'lawn-care',
     title: 'Lawn Care',
     shortTitle: 'Lawn Care',
-    image: '/assets/lawn-care.jpg',
+    image: '/assets/lawn-mowing.png',
     description:
       'Professional fertilization and weed control programs designed to keep your lawn healthy, vibrant, and beautiful.',
     eyebrow: 'Healthier Florida lawns',
@@ -132,7 +132,7 @@ export const services = [
     slug: 'tree-shrub-care',
     title: 'Tree & Shrub Care',
     shortTitle: 'Tree and Shrub Care',
-    image: '/assets/tree-shrub-care.jpg',
+    image: '/assets/shrub.png',
     description:
       'Targeted treatments help protect your trees and shrubs from pests, disease, and nutrient deficiencies.',
     eyebrow: 'Landscape plant health',
@@ -160,38 +160,6 @@ export const services = [
       { question: 'Do you treat landscape pests?', answer: 'Yes. RightWay can help with common insect pressure affecting ornamental trees and shrubs.' },
     ],
   },
-  {
-    slug: 'pump-protection',
-    title: 'Pump Protection',
-    shortTitle: 'Pump Protection',
-    image: '/assets/palm-protection.jpg',
-    description:
-      'Protect pumps and related outdoor systems with practical service support designed for Florida properties.',
-    eyebrow: 'Outdoor system support',
-    heading: 'Pump Protection Done the RightWay',
-    intro:
-      'RightWay helps homeowners protect outdoor pumps and related property systems with practical service support, preventive checks, and local care.',
-    bullets: ['Pump protection support', 'Preventive outdoor system checks', 'Local service from a veteran-owned team'],
-    process: [
-      { title: 'System Review', copy: 'We review outdoor pump areas and related property systems for visible concerns.' },
-      { title: 'Protection Plan', copy: 'We recommend practical support based on the system and property conditions.' },
-      { title: 'Preventive Service', copy: 'We complete preventive checks and service steps designed to reduce avoidable issues.' },
-      { title: 'Follow-Up Support', copy: 'We help homeowners stay ahead of outdoor system concerns with responsive care.' },
-    ],
-    whyChoose: [
-      { title: 'Practical Protection', copy: 'We focus on useful support for outdoor systems and property needs.' },
-      { title: 'Preventive Mindset', copy: 'Our service is designed to spot issues before they become bigger problems.' },
-      { title: 'Local Experience', copy: 'We understand the outdoor property conditions Northeast Florida homeowners face.' },
-      { title: 'Reliable Service', copy: 'RightWay provides clear communication and dependable scheduling.' },
-    ],
-    faqs: [
-      { question: 'What is pump protection service?', answer: 'Pump protection service supports outdoor pumps and related property systems through practical preventive checks and local service care.' },
-      { question: 'Do you inspect the system first?', answer: 'Yes. We review the pump area and related conditions before recommending next steps.' },
-      { question: 'Is this a recurring service?', answer: 'Pump protection can be handled as preventive support depending on your system and property needs.' },
-      { question: 'Can this help prevent problems?', answer: 'Preventive checks can help identify visible concerns early and reduce avoidable issues.' },
-      { question: 'How do I schedule pump protection?', answer: 'Call RightWay or request a quote online and we will help schedule service.' },
-    ],
-  },
 ];
 
 export const serviceAreas = [
@@ -212,12 +180,24 @@ export const locations = serviceAreas.map((name) => ({
 
 export const rightWayMapEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3449.651199291!2d-81.52985488819974!3d30.16138681291453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e433c97b9c53fb%3A0x6deca2b978ad5e11!2sRightWay%20Integrated%20Lawn%20and%20Pest%20Control%20Solutions!5e0!3m2!1sen!2sph!4v1782748534488!5m2!1sen!2sph';
 
-export const footerLinks = ['Home', 'About Us', 'Services', 'Service Areas', 'Review', 'Guarantee', 'Contact Us'];
+export const footerLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Service Areas', href: '/service-areas' },
+  { label: 'Review', href: '/#reviews' },
+  { label: 'Guarantee', href: '/about#guarantee' },
+  { label: 'Contact Us', href: '/#quote' },
+];
 
 export function getService(slug) {
   return services.find((service) => service.slug === slug);
 }
 
 export function getLocation(slug) {
+  if (slug === 'ponte-verde') {
+    return locations.find((location) => location.slug === 'ponte-vedra');
+  }
+
   return locations.find((location) => location.slug === slug);
 }
