@@ -202,6 +202,12 @@ export default async function ServicePage({ params }) {
           <p className="section-kicker">FAQs</p>
           <h2>RightWay Questions, Answered</h2>
           <p>Get quick answers about scheduling, inspections, service expectations, and ongoing support.</p>
+          <div className="faq-benefit-grid" aria-label="FAQ benefits">
+            <span><strong>Honest Answers</strong></span>
+            <span><strong>Quick Response</strong></span>
+            <span><strong>Local & Trusted</strong></span>
+            <span><strong>Quality Work</strong></span>
+          </div>
         </div>
         <FaqList faqs={service.faqs} />
       </section>

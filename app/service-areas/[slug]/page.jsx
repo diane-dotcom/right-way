@@ -197,6 +197,12 @@ export default async function LocationPage({ params }) {
               <p className="section-kicker">FAQs</p>
               <h2>RightWay Questions, Answered</h2>
               <p>Quick answers about Ponte Vedra service, scheduling, follow-up support, and common pest pressure.</p>
+              <div className="faq-benefit-grid" aria-label="FAQ benefits">
+                <span><strong>Honest Answers</strong></span>
+                <span><strong>Quick Response</strong></span>
+                <span><strong>Local & Trusted</strong></span>
+                <span><strong>Quality Work</strong></span>
+              </div>
             </div>
             <FaqList faqs={ponteVedraFaqs} />
           </section>

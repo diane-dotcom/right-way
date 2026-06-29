@@ -162,6 +162,12 @@ export default function Home() {
           <p className="section-kicker">FAQs</p>
           <h2>RightWay Questions, Answered</h2>
           <p>Quick answers about services, service areas, quotes, and follow-up support.</p>
+          <div className="faq-benefit-grid" aria-label="FAQ benefits">
+            <span><strong>Honest Answers</strong></span>
+            <span><strong>Quick Response</strong></span>
+            <span><strong>Local & Trusted</strong></span>
+            <span><strong>Quality Work</strong></span>
+          </div>
         </div>
         <FaqList faqs={homeFaqs} />
       </section>
