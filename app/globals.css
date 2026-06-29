@@ -70,6 +70,11 @@ img {
   font-weight: 700;
 }
 
+.nav-toggle,
+.mobile-menu-button {
+  display: none;
+}
+
 .nav a:hover {
   color: var(--red);
 }
@@ -2507,8 +2512,8 @@ h1 span,
   width: min(1180px, calc(100% - 48px));
   margin: 80px auto;
   display: grid;
-  grid-template-columns: 0.82fr 1.18fr;
-  gap: 56px;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 28px;
   align-items: start;
   padding: 46px;
   background:
@@ -2521,6 +2526,7 @@ h1 span,
 
 .pest-faq-copy {
   display: grid;
+  gap: 14px;
   justify-items: start;
 }
 
@@ -2541,6 +2547,7 @@ h1 span,
 }
 
 .pest-faq-copy h2 {
+  margin: 0;
   color: #071929;
   font-size: clamp(42px, 5vw, 68px);
   line-height: 0.95;
@@ -2554,28 +2561,29 @@ h1 span,
 
 .pest-faq-copy p:not(.section-kicker) {
   max-width: 410px;
+  margin: 0;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.7;
 }
 
 .faq-help-card {
-  width: min(420px, 100%);
+  width: min(330px, 100%);
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 18px;
-  margin-top: 28px;
-  padding: 22px;
+  gap: 12px;
+  margin-top: 4px;
+  padding: 14px 16px;
   background: #fff;
   border: 1px solid #dce8f4;
-  border-radius: 14px;
-  box-shadow: 0 16px 38px rgba(1, 58, 114, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(1, 58, 114, 0.1);
 }
 
 .faq-help-icon {
-  width: 58px;
-  height: 58px;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
   color: #fff;
@@ -2585,7 +2593,7 @@ h1 span,
 
 .faq-help-icon::before {
   content: '☎';
-  font-size: 27px;
+  font-size: 20px;
   line-height: 1;
 }
 
@@ -2597,21 +2605,21 @@ h1 span,
 }
 
 .faq-help-card p {
-  margin: 5px 0 8px;
+  margin: 3px 0 4px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .faq-help-card a {
   color: #0753c7;
-  font-size: 21px;
+  font-size: 16px;
 }
 
 .faq-help-card small {
   display: block;
-  margin-top: 10px;
+  margin-top: 5px;
   color: #4d5f70;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .pest-faq-list {
@@ -2952,58 +2960,121 @@ h1 span,
 
 @media (max-width: 1120px) {
   .header-inner {
-    grid-template-columns: 1fr;
-    padding: 14px 0;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    padding: 12px 0;
     gap: 12px;
-  }
-
-  .nav {
-    width: 100%;
-    order: 2;
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px;
-    overflow-x: auto;
-    padding: 10px 2px 4px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav > a,
-  .nav-trigger {
-    flex: 0 0 auto;
-    padding: 9px 12px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 999px;
-    white-space: nowrap;
-  }
-
-  .nav-dropdown {
-    flex: 0 0 auto;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 116px;
-    left: 50%;
-    width: min(320px, calc(100vw - 28px));
-    max-height: min(420px, calc(100vh - 140px));
-    overflow-y: auto;
-  }
-
-  .header-cta {
-    order: 3;
-    justify-self: end;
   }
 
   .logo {
     order: 1;
-    justify-self: center;
+    justify-self: start;
+  }
+
+  .header-cta {
+    order: 2;
+    justify-self: end;
+  }
+
+  .mobile-menu-button {
+    order: 3;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  .mobile-menu-button span {
+    width: 21px;
+    height: 2px;
+    display: block;
+    background: currentColor;
+    border-radius: 999px;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    width: min(320px, 86vw);
+    padding: 90px 20px 28px;
+    display: grid;
+    align-content: start;
+    justify-content: stretch;
+    gap: 12px;
+    overflow-y: auto;
+    color: #fff;
+    background: #050505;
+    box-shadow: -24px 0 60px rgba(0, 0, 0, 0.34);
+    transform: translateX(105%);
+    transition: transform 0.24s ease;
+  }
+
+  .nav-toggle:checked ~ .nav {
+    transform: translateX(0);
+  }
+
+  .nav > a,
+  .nav-trigger {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+  }
+
+  .nav-dropdown {
+    display: grid;
+    gap: 8px;
+  }
+
+  .nav-menu {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    max-height: none;
+    padding: 0;
+    gap: 6px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .nav-menu a {
+    padding: 9px 14px;
+    color: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.055);
+    border-radius: 10px;
+  }
+
+  .about-hero,
+  .about-story-section,
+  .about-guarantee-section {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero-photo {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .about-trust-grid,
+  .about-values-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .hero-inner,
@@ -3091,43 +3162,67 @@ h1 span,
 @media (max-width: 720px) {
   .header-inner {
     width: calc(100% - 24px);
-    min-height: auto;
-    grid-template-columns: 1fr;
-    padding: 12px 0;
-    gap: 12px;
+    min-height: 70px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    padding: 8px 0;
+    gap: 8px;
   }
 
-  .logo,
-  .header-cta,
-  .phone-mini {
-    justify-self: center;
-    text-align: center;
+  .logo {
+    justify-self: start;
   }
 
   .logo img {
-    width: 150px;
+    width: 114px;
   }
 
   .header-cta {
-    width: 100%;
-    justify-content: center;
+    width: auto;
+    justify-self: end;
+    justify-content: flex-end;
+    gap: 0;
+  }
+
+  .phone-mini {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px 8px 36px;
+    color: #fff;
+    text-align: left;
+    background: rgba(1, 58, 114, 0.92);
+    border-radius: 999px;
+  }
+
+  .phone-mini::before {
+    left: 7px;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    background: var(--red);
+    transform: translateY(-50%);
+  }
+
+  .phone-mini span,
+  .header-cta .quote-button {
+    display: none;
+  }
+
+  .phone-mini strong {
+    font-size: 13px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .mobile-menu-button {
+    width: 40px;
+    height: 40px;
   }
 
   .nav {
     font-size: 13px;
-  }
-
-  .nav-menu {
-    top: 168px;
-  }
-
-  .phone-mini strong {
-    font-size: 15px;
-  }
-
-  .quote-button {
-    padding: 12px;
-    font-size: 12px;
   }
 
   .reviews-strip {
@@ -3370,10 +3465,100 @@ h1 span,
     font-size: 16px;
   }
 
-  .hero-actions,
-  .header-cta {
+  .hero-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .about-hero,
+  .about-trust-grid,
+  .about-story-section,
+  .about-values-grid,
+  .about-guarantee-section {
+    width: calc(100% - 28px);
+  }
+
+  .about-hero {
+    padding: 44px 0 42px;
+    gap: 26px;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .about-hero-copy {
+    justify-items: center;
+  }
+
+  .about-hero-copy h1,
+  .about-hero-copy p:not(.eyebrow) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-hero-copy h1 {
+    font-size: clamp(36px, 11vw, 52px);
+    letter-spacing: -0.05em;
+  }
+
+  .about-hero-copy p:not(.eyebrow) {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .about-hero .hero-actions {
+    width: 100%;
+  }
+
+  .about-hero-photo {
+    width: 100%;
+    padding: 10px;
+    border-radius: 22px;
+  }
+
+  .about-hero-photo img {
+    min-height: 300px;
+    border-radius: 16px;
+  }
+
+  .about-rating-card {
+    position: static;
+    width: calc(100% - 20px);
+    margin: -58px auto 0;
+    justify-content: center;
+  }
+
+  .about-trust-grid,
+  .about-values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-trust-grid article,
+  .about-story-section,
+  .about-values-grid article,
+  .about-guarantee-section {
+    text-align: center;
+  }
+
+  .about-story-section {
+    margin: 48px auto;
+    gap: 22px;
+  }
+
+  .about-story-copy p,
+  .about-guarantee-section p:not(.section-kicker) {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .about-values-section {
+    padding: 50px 0;
+  }
+
+  .about-guarantee-section {
+    margin: 48px auto;
+    padding: 28px 20px;
+    justify-items: center;
+    border-radius: 22px;
   }
 
   .hero-badges,

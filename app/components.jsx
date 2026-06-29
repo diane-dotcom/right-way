@@ -22,6 +22,12 @@ export function Header() {
         <a className="logo" href="/" aria-label="RightWay home">
           <img src="/assets/logo.webp" alt="RightWay Lawn & Pest Control" />
         </a>
+        <input className="nav-toggle" id="primary-nav-toggle" type="checkbox" aria-label="Toggle navigation" />
+        <label className="mobile-menu-button" htmlFor="primary-nav-toggle" aria-label="Open navigation">
+          <span />
+          <span />
+          <span />
+        </label>
         <nav className="nav" aria-label="Primary navigation">
           <a href="/">Home</a>
           <a href="/about">About</a>
