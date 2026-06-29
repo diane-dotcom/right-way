@@ -606,6 +606,78 @@ h1 span,
   text-align: left;
 }
 
+.pest-protection-section {
+  width: min(1320px, calc(100% - 48px));
+  margin: 70px auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 62px;
+  align-items: center;
+  padding: 58px 62px;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 24px 70px rgba(1, 20, 38, 0.12);
+}
+
+.pest-protection-copy h2 {
+  max-width: 680px;
+  color: #071929;
+  font-size: clamp(38px, 5vw, 64px);
+  letter-spacing: -0.055em;
+}
+
+.pest-protection-copy h2 span {
+  color: #0753c7;
+}
+
+.pest-protection-copy p {
+  max-width: 650px;
+  color: #142337;
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+.pest-protection-mark {
+  width: 78px;
+  height: 7px;
+  margin: 26px 0;
+  background: linear-gradient(90deg, var(--blue), #8db4ef);
+}
+
+.pest-protection-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.pest-protection-features article {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+  background: #fff;
+  border: 1px solid #dce5eb;
+  border-radius: 12px;
+}
+
+.pest-protection-features svg {
+  flex: 0 0 auto;
+  color: #0753c7;
+}
+
+.pest-protection-features strong {
+  color: #071929;
+  font-size: 18px;
+}
+
+.pest-protection-photo img {
+  width: 100%;
+  min-height: 560px;
+  object-fit: cover;
+  border-radius: 22px;
+}
+
 .service-bullet-list {
   display: grid;
   gap: 14px;
@@ -642,6 +714,38 @@ h1 span,
 
 .service-related {
   padding-top: 30px;
+}
+
+.pest-related-section {
+  width: min(1180px, calc(100% - 48px));
+  padding: 24px 0 58px;
+  text-align: center;
+}
+
+.pest-related-section .service-grid {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.pest-related-section .service-card {
+  text-align: left;
+}
+
+.pest-related-section .service-card img {
+  height: 125px;
+}
+
+.pest-related-section .service-card div {
+  padding: 18px;
+}
+
+.pest-related-section .service-card h3 {
+  font-size: 18px;
+}
+
+.pest-related-section .service-card p {
+  display: none;
 }
 
 .service-areas-block {
@@ -735,7 +839,6 @@ h1 span,
   font-size: clamp(30px, 4vw, 44px);
 }
 
-.pest-process-grid,
 .pest-why-grid,
 .pest-chip-grid {
   display: grid;
@@ -743,8 +846,56 @@ h1 span,
   margin-top: 34px;
 }
 
-.pest-process-grid {
+.pest-process-block {
+  width: min(1320px, calc(100% - 48px));
+  padding: 36px 0 68px;
+}
+
+.pest-process-block h2 span {
+  color: var(--red);
+}
+
+.pest-process-timeline {
+  position: relative;
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 34px;
+  margin-top: 36px;
+}
+
+.pest-process-timeline::before {
+  content: '';
+  position: absolute;
+  top: 52px;
+  left: 10%;
+  right: 10%;
+  border-top: 2px dashed #d7dde5;
+  z-index: 0;
+}
+
+.pest-process-timeline article {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  padding: 18px 16px 8px;
+  background: #fff;
+}
+
+.pest-process-timeline article small {
+  position: absolute;
+  top: 0;
+  right: 24%;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--red);
+  border-radius: 999px;
+  font-family: Sora, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .pest-process-grid article,
@@ -756,29 +907,97 @@ h1 span,
   box-shadow: 0 14px 30px rgba(1, 58, 114, 0.08);
 }
 
-.pest-process-grid span {
-  width: 52px;
-  height: 52px;
+.pest-process-icon {
+  width: 108px;
+  height: 108px;
   display: inline-grid;
   place-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
   color: var(--red);
-  border: 2px solid var(--blue);
+  background: #fbfbfc;
+  border: 1px solid #eef1f5;
   border-radius: 999px;
   font-family: Sora, sans-serif;
   font-weight: 800;
+  box-shadow: 0 14px 34px rgba(1, 58, 114, 0.08);
 }
 
-.pest-process-grid h3,
+.pest-process-icon svg {
+  display: block;
+}
+
+.pest-process-timeline h3,
 .pest-why-grid h3 {
   color: #071929;
   font-size: 18px;
 }
 
-.pest-process-grid p,
+.pest-process-timeline p,
 .pest-why-grid p {
   color: var(--muted);
   line-height: 1.6;
+}
+
+.pest-process-timeline p {
+  max-width: 210px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.map-pack-card {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #dce5eb;
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.map-pack-map iframe {
+  width: 100%;
+  height: 260px;
+  display: block;
+  border: 0;
+}
+
+.map-pack-results {
+  display: grid;
+  gap: 12px;
+  padding: 22px;
+}
+
+.map-pack-label {
+  width: fit-content;
+  padding: 7px 10px;
+  color: #fff;
+  background: var(--red);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.map-pack-results h3 {
+  color: #071929;
+  font-size: 24px;
+}
+
+.map-pack-results a {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  color: #071929;
+  background: var(--gray);
+  border-left: 4px solid var(--blue);
+  border-radius: 12px;
+}
+
+.map-pack-results a:hover {
+  border-left-color: var(--red);
+  transform: translateY(-1px);
+}
+
+.map-pack-results small {
+  color: var(--muted);
 }
 
 .pest-why-block {
@@ -1000,6 +1219,7 @@ h1 span,
   .hero-inner,
   .reviews,
   .areas,
+  .pest-protection-section,
   .service-hero,
   .service-detail {
     grid-template-columns: 1fr;
@@ -1009,12 +1229,28 @@ h1 span,
     position: static;
   }
 
+  .pest-protection-section {
+    padding: 42px;
+  }
+
+  .pest-protection-photo img {
+    min-height: 390px;
+  }
+
   .trust-bar,
   .service-grid,
-  .pest-process-grid,
+  .pest-process-timeline,
   .pest-why-grid,
   .pest-chip-grid,
   .footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pest-process-timeline::before {
+    display: none;
+  }
+
+  .pest-related-section .service-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -1057,6 +1293,7 @@ h1 span,
   .hero-inner,
   .section,
   .areas,
+  .pest-protection-section,
   .service-hero {
     width: calc(100% - 28px);
   }
@@ -1082,11 +1319,30 @@ h1 span,
 
   .trust-bar,
   .service-grid,
-  .pest-process-grid,
+  .pest-process-timeline,
   .pest-why-grid,
   .pest-chip-grid,
   .footer {
     grid-template-columns: 1fr;
+  }
+
+  .pest-related-section .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pest-process-timeline {
+    gap: 20px;
+  }
+
+  .pest-process-timeline article {
+    padding: 20px;
+    border: 1px solid #dce5eb;
+    border-radius: 18px;
+    box-shadow: 0 14px 30px rgba(1, 58, 114, 0.08);
+  }
+
+  .pest-process-timeline article small {
+    right: calc(50% - 54px);
   }
 
   .trust-bar {
@@ -1126,6 +1382,25 @@ h1 span,
 
   .pest-inspo-hero {
     padding: 48px 14px 36px;
+  }
+
+  .pest-protection-section {
+    margin: 42px auto;
+    padding: 28px;
+    gap: 28px;
+    border-radius: 20px;
+  }
+
+  .pest-protection-copy p {
+    font-size: 16px;
+  }
+
+  .pest-protection-features {
+    grid-template-columns: 1fr;
+  }
+
+  .pest-protection-photo img {
+    min-height: 300px;
   }
 
   .pest-process-block,

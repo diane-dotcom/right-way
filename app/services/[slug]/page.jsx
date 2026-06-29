@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { ArrowRight, BadgeCheck, RotateCcw, ShieldCheck } from 'lucide-react';
+import { ArrowRight, BadgeCheck, Bug, ClipboardCheck, RotateCcw, Search, ShieldCheck } from 'lucide-react';
 import { Footer, Header, ReviewsStrip, Stars } from '../../components';
 import { getService, serviceAreas, services } from '../../services-data';
 
@@ -38,6 +38,14 @@ export default async function ServicePage({ params }) {
     { label: 'Licensed & Insured', icon: ShieldCheck },
     { label: 'Free Callbacks', icon: RotateCcw },
   ];
+  const protectionFeatures = [
+    { label: 'Licensed & Insured', icon: ShieldCheck },
+    { label: 'Safe Family-Friendly Treatments', icon: BadgeCheck },
+    { label: 'Detailed Inspection', icon: ArrowRight },
+    { label: 'Long-Term Prevention', icon: RotateCcw },
+  ];
+  const processIcons = [Search, Bug, ClipboardCheck, ShieldCheck];
+  const mapPackAreas = ['Ponte Vedra', 'St. Augustine', 'Nocatee'];
 
   return (
     <main>
@@ -71,16 +79,40 @@ export default async function ServicePage({ params }) {
         )}
       </section>
 
-      <section className={`service-detail section${isPestControl ? ' service-detail-no-form' : ''}`}>
-        <div>
-          <p className="section-kicker">Our Services</p>
-          <h2>{service.title} for Northeast Florida Homes</h2>
-          <p className="section-lede">{service.description}</p>
-          <ul className="service-bullet-list">
-            {service.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
-          </ul>
-        </div>
-        {!isPestControl && (
+      {isPestControl ? (
+        <section className="pest-protection-section">
+          <div className="pest-protection-copy">
+            <h2>Professional <span>Pest Control</span> Built for Long-Term Protection</h2>
+            <p>
+              Pest problems can quickly disrupt your home, damage property, and create unnecessary stress. Our pest control services provide safe, effective solutions for ants, cockroaches, spiders, rodents, termites, and other common pests using targeted treatments designed for lasting results.
+            </p>
+            <p>
+              From thorough inspections and customized treatment plans to preventative applications and follow-up care, we help homeowners protect their property with dependable residential pest control services focused on long-term prevention, family safety, and peace of mind.
+            </p>
+            <div className="pest-protection-mark" aria-hidden="true" />
+            <div className="pest-protection-features">
+              {protectionFeatures.map(({ label, icon: Icon }) => (
+                <article key={label}>
+                  <Icon size={34} strokeWidth={2.4} />
+                  <strong>{label}</strong>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className="pest-protection-photo">
+            <img src="/assets/pest-control.jpg" alt="Pest control technician treating a home" />
+          </div>
+        </section>
+      ) : (
+        <section className="service-detail section">
+          <div>
+            <p className="section-kicker">Our Services</p>
+            <h2>{service.title} for Northeast Florida Homes</h2>
+            <p className="section-lede">{service.description}</p>
+            <ul className="service-bullet-list">
+              {service.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+            </ul>
+          </div>
           <form className="quote-card service-quote-card" id="quote">
             <div className="quote-card-header">
               <h2>Request {service.shortTitle}</h2>
@@ -107,20 +139,42 @@ export default async function ServicePage({ params }) {
             <a className="quote-card-action" href={quoteUrl} target="_blank" rel="noreferrer">Get My Free Quote</a>
             <p className="fine-print">Licensed & insured · No-obligation quote</p>
           </form>
-        )}
-      </section>
+        </section>
+      )}
 
       {isPestControl && (
         <>
           <section className="pest-process-block">
-            <p className="section-kicker">Our Process</p>
-            <h2>Our Pest Control Process</h2>
-            <div className="pest-process-grid">
+            <h2>Our <span>PEST</span> Control Process</h2>
+            <div className="pest-process-timeline">
               {service.process.map((item, index) => (
                 <article key={item.title}>
-                  <span>{index + 1}</span>
+                  <small>{index + 1}</small>
+                  <span className="pest-process-icon">
+                    {(() => {
+                      const Icon = processIcons[index % processIcons.length];
+                      return <Icon size={28} strokeWidth={2.4} />;
+                    })()}
+                  </span>
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="section service-related pest-related-section">
+            <p className="section-kicker">More Services</p>
+            <h2>Explore More RightWay Services</h2>
+            <div className="service-grid">
+              {relatedServices.map((item) => (
+                <article className="service-card" key={item.slug}>
+                  <img src={item.image} alt="" />
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                    <a href={`/services/${item.slug}`}>View Service</a>
+                  </div>
                 </article>
               ))}
             </div>
@@ -157,22 +211,24 @@ export default async function ServicePage({ params }) {
         </>
       )}
 
-      <section className="section service-related">
-        <p className="section-kicker">More Services</p>
-        <h2>Explore More RightWay Services</h2>
-        <div className="service-grid">
-          {relatedServices.map((item) => (
-            <article className="service-card" key={item.slug}>
-              <img src={item.image} alt="" />
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-                <a href={`/services/${item.slug}`}>View Service</a>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+      {!isPestControl && (
+        <section className="section service-related">
+          <p className="section-kicker">More Services</p>
+          <h2>Explore More RightWay Services</h2>
+          <div className="service-grid">
+            {relatedServices.map((item) => (
+              <article className="service-card" key={item.slug}>
+                <img src={item.image} alt="" />
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <a href={`/services/${item.slug}`}>View Service</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="areas service-areas-block">
         <div className="areas-copy">
@@ -183,7 +239,30 @@ export default async function ServicePage({ params }) {
             {serviceAreas.map((area) => <span key={area}>{area}</span>)}
           </div>
         </div>
-        <img src="/assets/lawn-home.jpg" alt="Florida home with green lawn" />
+        {isPestControl ? (
+          <div className="map-pack-card" aria-label="RightWay service area map pack">
+            <div className="map-pack-map">
+              <iframe
+                src="https://www.google.com/maps?q=St.%20Johns%20County%20Florida&output=embed"
+                title="RightWay service area map"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <div className="map-pack-results">
+              <span className="map-pack-label">Local Map Pack</span>
+              <h3>{service.shortTitle} Near You</h3>
+              {mapPackAreas.map((area) => (
+                <a key={area} href={`https://www.google.com/maps/search/${encodeURIComponent(`${service.shortTitle} ${area} FL`)}`} target="_blank" rel="noreferrer">
+                  <strong>RightWay {service.shortTitle}</strong>
+                  <small>{area}, FL · Call (904) 290-6400</small>
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <img src="/assets/lawn-home.jpg" alt="Florida home with green lawn" />
+        )}
       </section>
 
       <section className="final-cta">

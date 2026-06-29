@@ -12,6 +12,7 @@ export function Header() {
           <img src="/assets/logo.webp" alt="RightWay Lawn & Pest Control" />
         </a>
         <nav className="nav" aria-label="Primary navigation">
+          <a href="/">Home</a>
           <a href="/#about">About</a>
           <div className="nav-dropdown">
             <button className="nav-trigger" type="button">Services</button>
@@ -21,7 +22,6 @@ export function Header() {
               ))}
             </div>
           </div>
-          <a href="/#reviews">Reviews</a>
           <a href="/#areas">Service Areas</a>
           <a href="https://portal.gorilladesk.com/rightwaypest">Manage Account</a>
           <a href="https://portal.gorilladesk.com/rightwaypest">Pay Bill</a>
