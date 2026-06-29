@@ -1,4 +1,4 @@
-import { footerLinks, serviceAreas, services } from './services-data';
+import { footerLinks, locations, serviceAreas, services } from './services-data';
 
 export function Stars() {
   return <span className="stars" aria-label="5 star rating">★★★★★</span>;
@@ -22,7 +22,14 @@ export function Header() {
               ))}
             </div>
           </div>
-          <a href="/#areas">Service Areas</a>
+          <div className="nav-dropdown">
+            <button className="nav-trigger" type="button">Service Areas</button>
+            <div className="nav-menu" aria-label="Service areas menu">
+              {locations.map((area) => (
+                <a key={area.slug} href={`/service-areas/${area.slug}`}>{area.name}</a>
+              ))}
+            </div>
+          </div>
           <a href="https://portal.gorilladesk.com/rightwaypest">Manage Account</a>
           <a href="https://portal.gorilladesk.com/rightwaypest">Pay Bill</a>
         </nav>
@@ -69,7 +76,7 @@ export function Footer() {
         </div>
         <div>
           <h3>Service Areas</h3>
-          {serviceAreas.map((area) => <a key={area} href="/#areas">{area}</a>)}
+          {locations.map((area) => <a key={area.slug} href={`/service-areas/${area.slug}`}>{area.name}</a>)}
         </div>
       </footer>
       <div className="copyright">Copyright © 2026 RightWay Lawn & Pest Control. All Rights Reserved.</div>

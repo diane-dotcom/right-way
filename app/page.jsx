@@ -146,7 +146,7 @@ export default function Home() {
             and your home protected across St. Johns County and surrounding beaches.
           </p>
           <AreaTags areas={serviceAreas} />
-          <a className="text-link" href="#quote">See All Service Areas</a>
+          <a className="text-link" href="/service-areas">See All Service Areas</a>
         </div>
         <div className="map-pack-card area-map-card" aria-label="RightWay service area map">
           <div className="map-pack-map">
