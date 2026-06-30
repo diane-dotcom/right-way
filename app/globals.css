@@ -559,6 +559,9 @@ h1 span,
 }
 
 .hero-badges span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 11px 14px;
   background: rgba(255, 255, 255, 0.11);
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -2548,6 +2551,18 @@ h1 span,
   background:
     linear-gradient(rgba(1, 58, 114, 0.2), rgba(1, 58, 114, 0.2)),
     url('/assets/lawn-care.jpg') center / cover;
+}
+
+.service-final-cta-banner {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
+    url('/assets/service-cta-hd.png') center / cover;
+}
+
+.home-final-cta-banner {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.22)),
+    url('/assets/service-cta-hd.png') center / cover;
 }
 
 .final-cta .section-kicker,

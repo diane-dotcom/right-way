@@ -1,11 +1,16 @@
 import { notFound } from 'next/navigation';
-import { BadgeCheck, Bug, Headphones, Home, MapPin, Phone, ShieldCheck, Sprout, Star, Waves } from 'lucide-react';
+import { BadgeCheck, Bug, Headphones, Home, MapPin, Phone, RotateCcw, ShieldCheck, Sprout, Star, Waves } from 'lucide-react';
 import { AreaTags } from '../../area-tags';
 import { Footer, GoogleLogo, Header } from '../../components';
 import { FaqList } from '../../faq-list';
 import { getLocation, locations, rightWayMapEmbedUrl, serviceAreas, services } from '../../services-data';
 
 const serviceIcons = [Bug, Sprout, ShieldCheck, Waves, Home, BadgeCheck];
+const locationTrustBadges = [
+  { label: 'Veteran-Owned', icon: BadgeCheck },
+  { label: 'Licensed & Insured', icon: ShieldCheck },
+  { label: 'Free Callbacks', icon: RotateCcw },
+];
 
 const getLocationFaqs = (name) => [
   {
@@ -69,9 +74,9 @@ export default async function LocationPage({ params }) {
                 RightWay helps {location.name} homeowners protect their lawns, homes, and outdoor spaces with dependable local lawn care and pest control service.
               </p>
               <div className="hero-badges" aria-label="Company highlights">
-                <span>✓ Veteran-Owned</span>
-                <span>✓ Licensed & Insured</span>
-                <span>✓ Free Callbacks</span>
+                {locationTrustBadges.map(({ label, icon: Icon }) => (
+                  <span key={label}><Icon size={18} strokeWidth={2.4} /> {label}</span>
+                ))}
               </div>
               <div className="hero-actions">
                 <a className="primary-action" href="tel:9042906400">Call (904) 290-6400</a>
@@ -254,9 +259,9 @@ export default async function LocationPage({ params }) {
               RightWay helps {location.name} homeowners protect their lawns, homes, and outdoor spaces with dependable local lawn care and pest control service.
             </p>
             <div className="hero-badges" aria-label="Company highlights">
-              <span>✓ Veteran-Owned</span>
-              <span>✓ Licensed & Insured</span>
-              <span>✓ Free Callbacks</span>
+              {locationTrustBadges.map(({ label, icon: Icon }) => (
+                <span key={label}><Icon size={18} strokeWidth={2.4} /> {label}</span>
+              ))}
             </div>
             <div className="hero-actions">
               <a className="primary-action" href="tel:9042906400">Call (904) 290-6400</a>

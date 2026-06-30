@@ -195,7 +195,7 @@ export default async function ServicePage({ params }) {
         </div>
       </section>
 
-      <section className="final-cta">
+      <section className="final-cta service-final-cta-banner">
         <p className="section-kicker">Get Started Today</p>
         <h2>Ready for {service.shortTitle}?</h2>
         <p>Contact RightWay today for a free quote and dependable local service.</p>

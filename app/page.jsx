@@ -1,9 +1,16 @@
+import { BadgeCheck, RotateCcw, ShieldCheck } from 'lucide-react';
 import { Footer, GoogleReviews, Header, ReviewsStrip } from './components';
 import { AreaTags } from './area-tags';
 import { FaqList } from './faq-list';
 import { rightWayMapEmbedUrl, serviceAreas, services } from './services-data';
 
 const homeQuoteUrl = 'https://wa.me/19042906400?text=Hi%20RightWay%2C%20I%20would%20like%20a%20free%20quote.';
+
+const homeTrustBadges = [
+  { label: 'Veteran-Owned', icon: BadgeCheck },
+  { label: 'Licensed & Insured', icon: ShieldCheck },
+  { label: 'Free Callbacks', icon: RotateCcw },
+];
 
 const homeFaqs = [
   {
@@ -45,9 +52,9 @@ export default function Home() {
               and surrounding communities enjoy healthier lawns and more comfortable homes.
             </p>
             <div className="hero-badges" aria-label="Company highlights">
-              <span>✓ Veteran-Owned</span>
-              <span>✓ Licensed & Insured</span>
-              <span>✓ Free Callbacks</span>
+              {homeTrustBadges.map(({ label, icon: Icon }) => (
+                <span key={label}><Icon size={18} strokeWidth={2.4} /> {label}</span>
+              ))}
             </div>
             <div className="hero-actions">
               <a className="primary-action" href="tel:9042906400">Call (904) 290-6400</a>
@@ -155,7 +162,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="final-cta">
+      <section className="final-cta service-final-cta-banner home-final-cta-banner">
         <p className="section-kicker">Get Started Today</p>
         <h2>Ready for a Healthier Lawn & Pest-Free Home?</h2>
         <p>Contact RightWay today for a free quote and discover why homeowners across Northeast Florida trust us.</p>
