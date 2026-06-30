@@ -28,7 +28,7 @@ export default function ServiceAreasPage() {
             <ShieldCheck size={58} strokeWidth={2.2} />
             <div>
               <strong>Trusted by 1,000+ Northeast Florida homeowners and businesses.</strong>
-              <span><Star size={16} fill="currentColor" /> <Star size={16} fill="currentColor" /> <Star size={16} fill="currentColor" /> <Star size={16} fill="currentColor" /> <Star size={16} fill="currentColor" /> 4.9/5 rating</span>
+              <span><Star size={16} fill="currentColor" /> <Star size={16} fill="currentColor" /> <Star size={16} fill="currentColor" /> <Star size={16} fill="currentColor" /> <Star size={16} fill="currentColor" /> 5/5 rating</span>
             </div>
           </div>
         </div>

@@ -40,9 +40,10 @@ img {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(4, 9, 13, 0.88);
+  background: #fff;
   backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(7, 25, 41, 0.08);
+  box-shadow: 0 8px 28px rgba(7, 25, 41, 0.08);
 }
 
 .header-inner {
@@ -64,7 +65,7 @@ img {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  color: #fff;
+  color: #071929;
   font-family: Sora, sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -103,8 +104,8 @@ img {
   padding: 18px 10px 10px;
   display: grid;
   gap: 4px;
-  background: rgba(5, 5, 5, 0.94);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #071929;
+  border: 1px solid rgba(7, 25, 41, 0.12);
   border-radius: 14px;
   box-shadow: 0 18px 38px rgba(0, 0, 0, 0.26);
   opacity: 0;
@@ -128,7 +129,7 @@ img {
 
 .nav-menu a:hover {
   color: #fff;
-  background: var(--red);
+  background: var(--blue);
 }
 
 .header-cta {
@@ -136,13 +137,19 @@ img {
   align-items: center;
   justify-content: flex-end;
   gap: 16px;
-  color: #fff;
+  color: #071929;
 }
 
 .phone-mini {
-  display: grid;
-  gap: 2px;
-  padding-left: 44px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 17px 0 52px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(1, 58, 114, 0.18);
   position: relative;
 }
 
@@ -150,13 +157,14 @@ img {
   content: '☎';
   position: absolute;
   left: 0;
-  top: 2px;
+  top: 50%;
   width: 34px;
   height: 34px;
   display: grid;
   place-items: center;
-  background: var(--blue);
+  background: var(--red);
   border-radius: 999px;
+  transform: translate(9px, -50%);
 }
 
 .phone-mini span {
@@ -182,10 +190,10 @@ img {
 }
 
 .quote-button {
-  background: var(--blue);
-  color: #fff;
-  padding: 15px 16px;
-  box-shadow: 0 0 15px 6px rgba(0, 0, 0, 0.11);
+  color: var(--blue);
+  background: transparent;
+  padding: 15px 0;
+  box-shadow: none;
 }
 
 .quote-button:hover,
@@ -194,6 +202,11 @@ img {
 .quote-card-action:hover {
   background: var(--red);
   transform: translateY(-1px);
+}
+
+.quote-button:hover {
+  color: var(--red);
+  background: transparent;
 }
 
 .reviews-strip {
@@ -454,7 +467,7 @@ img {
   min-height: 840px;
   padding: 95px 0 64px;
   background:
-    linear-gradient(90deg, rgba(2, 18, 34, 0.93), rgba(1, 58, 114, 0.75) 44%, rgba(5, 5, 5, 0.25)),
+    linear-gradient(90deg, rgba(2, 18, 34, 0.78), rgba(1, 58, 114, 0.32) 44%, rgba(5, 5, 5, 0.1)),
     url('/assets/home-hero-hd.png') center / cover;
   overflow: hidden;
 }
@@ -472,7 +485,7 @@ img {
   width: min(1240px, calc(100% - 48px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 420px;
+  grid-template-columns: minmax(0, 1fr) minmax(460px, 520px);
   align-items: center;
   gap: 58px;
 }
@@ -569,35 +582,44 @@ h1 span,
 }
 
 .quote-card {
-  max-width: 430px;
+  width: 100%;
+  max-width: 520px;
   justify-self: end;
   background: #fff;
-  border-radius: 18px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: 0 24px 60px rgba(1, 32, 61, 0.18);
 }
 
 .quote-card-header {
-  padding: 22px 24px;
-  color: #fff;
-  background: var(--blue);
+  padding: 22px 24px 2px;
+  color: #071929;
+  background: #fff;
 }
 
 .quote-card-header h2 {
+  color: #071929;
   font-size: 24px;
 }
 
 .quote-card-header p {
   margin: 9px 0 0;
-  color: rgba(255, 255, 255, 0.86);
-  line-height: 1.5;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
 }
 
-.quote-card label,
 .rating-box,
 .fine-print {
-  margin-left: 24px;
-  margin-right: 24px;
+  margin-left: 34px;
+  margin-right: 34px;
+}
+
+.quote-card-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 16px;
+  padding: 22px 24px 0;
 }
 
 .rating-box {
@@ -612,24 +634,46 @@ h1 span,
 
 .quote-card label {
   display: grid;
-  gap: 10px;
-  margin-bottom: 14px;
-  color: #172533;
-  font-weight: 800;
+  gap: 8px;
+  margin: 0;
+  color: #050505;
+  font-family: Sora, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
-.quote-card label:first-of-type {
-  margin-top: 26px;
+.quote-card label span {
+  display: block;
+}
+
+.quote-card label b {
+  color: #c72811;
+  font-weight: 900;
+}
+
+.quote-card .wide-field {
+  grid-column: 1 / -1;
 }
 
 .quote-card input,
-.quote-card select {
+.quote-card select,
+.quote-card textarea {
   width: 100%;
-  height: 48px;
-  padding: 0 14px;
-  border: 1px solid #d9e1e7;
-  border-radius: 7px;
+  min-height: 48px;
+  padding: 0 13px;
+  background: #e9e9e9;
+  border: 1px solid #bfc3c7;
+  border-radius: 6px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.08);
   font: inherit;
+}
+
+.quote-card textarea {
+  min-height: 92px;
+  padding: 12px 13px;
+  resize: vertical;
 }
 
 .quote-card button {
@@ -645,7 +689,7 @@ h1 span,
 .quote-card-action {
   width: calc(100% - 48px);
   display: block;
-  margin: 5px 24px 12px;
+  margin: 20px 24px 12px;
   padding: 14px;
   color: #fff;
   background: var(--red);
@@ -654,7 +698,7 @@ h1 span,
 
 .fine-print {
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   color: var(--muted);
   font-size: 14px;
 }
@@ -1480,28 +1524,6 @@ h1 span,
   border-radius: 22px;
 }
 
-.location-feature-photo div {
-  position: absolute;
-  right: 22px;
-  bottom: 22px;
-  width: min(310px, calc(100% - 44px));
-  display: grid;
-  gap: 9px;
-  padding: 20px;
-  color: #fff;
-  background: rgba(1, 58, 114, 0.9);
-  border-radius: 14px;
-  box-shadow: 0 18px 34px rgba(1, 22, 44, 0.22);
-}
-
-.location-feature-photo strong {
-  font-family: Sora, sans-serif;
-}
-
-.location-feature-photo span {
-  font-size: 13px;
-}
-
 .location-area-card {
   grid-template-columns: 1fr 1.15fr;
 }
@@ -1587,6 +1609,12 @@ h1 span,
   background: linear-gradient(145deg, #071929 0%, #062c4c 100%);
   border-radius: 0;
   box-shadow: none;
+}
+
+@media (min-width: 1121px) {
+  .ponte-nearby-card > * {
+    transform: translateX(-10%);
+  }
 }
 
 .ponte-nearby-card .section-kicker {
@@ -3021,15 +3049,17 @@ h1 span,
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 16px;
+    gap: 0;
+    padding-top: 12px;
+    border-top: 1px solid rgba(7, 25, 41, 0.1);
   }
 
   .nav > a,
   .nav-trigger {
     width: 100%;
-    min-height: 20px;
+    min-height: 44px;
     justify-content: space-between;
-    padding: 0;
+    padding: 0 2px;
     color: inherit;
     background: transparent;
     border: 0;
@@ -3043,7 +3073,7 @@ h1 span,
 
   .nav-dropdown {
     display: grid;
-    gap: 8px;
+    gap: 0;
     width: 100%;
   }
 
@@ -3065,10 +3095,11 @@ h1 span,
     min-width: 0;
     max-height: none;
     display: none;
-    margin-top: 10px;
+    margin-top: 0;
+    margin-bottom: 8px;
     padding: 8px;
     gap: 2px;
-    background: #f7f8fa;
+    background: #071929;
     border: 0;
     border-radius: 0;
     box-shadow: none;
@@ -3086,7 +3117,7 @@ h1 span,
   .nav-menu a {
     display: block;
     padding: 11px 12px;
-    color: #071929;
+    color: #fff;
     background: transparent;
     border-radius: 8px;
     font-size: 12px;
@@ -3095,8 +3126,8 @@ h1 span,
   }
 
   .nav-menu a:hover {
-    color: var(--red);
-    background: #eef2f5;
+    color: #fff;
+    background: var(--blue);
   }
 
   .about-hero,
@@ -3227,10 +3258,10 @@ h1 span,
     align-items: center;
     gap: 8px;
     padding: 8px 10px 8px 36px;
-    color: #071929;
+    color: #fff;
     text-align: left;
-    background: #fff;
-    border: 1px solid rgba(7, 25, 41, 0.12);
+    background: var(--blue);
+    border: 1px solid rgba(1, 58, 114, 0.18);
     border-radius: 999px;
     box-shadow: 0 8px 20px rgba(7, 25, 41, 0.08);
   }
@@ -3267,10 +3298,16 @@ h1 span,
 
   .reviews-strip {
     font-size: 11px;
+    line-height: 1.35;
+    text-align: center;
   }
 
   .hero {
-    padding: 48px 0 80px;
+    min-height: 0;
+    padding: 48px 0 70px;
+    background:
+      linear-gradient(180deg, rgba(2, 18, 34, 0.78), rgba(1, 58, 114, 0.34) 55%, rgba(5, 5, 5, 0.22)),
+      url('/assets/home-hero-hd.png') center / cover;
   }
 
   .hero-inner,
@@ -3307,6 +3344,13 @@ h1 span,
     margin-right: auto;
   }
 
+  .hero-copy h1 {
+    max-width: 460px;
+    font-size: clamp(36px, 10.5vw, 54px);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+  }
+
   .service-page-hero {
     min-height: 0;
     padding: 48px 0 54px;
@@ -3341,20 +3385,57 @@ h1 span,
   }
 
   .quote-card {
-    padding: 24px 18px;
+    padding: 0;
     text-align: left;
     border-radius: 14px;
   }
 
   .quote-card-header {
+    padding: 20px 18px 0;
     text-align: center;
+  }
+
+  .quote-card .fine-print {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+
+  .quote-card-fields {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 22px 18px 0;
+  }
+
+  .quote-card label {
+    gap: 9px;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .quote-card label:first-of-type {
+    margin-top: 0;
+  }
+
+  .quote-card input,
+  .quote-card select,
+  .quote-card textarea {
+    min-height: 46px;
+    font-size: 16px;
+  }
+
+  .quote-card textarea {
+    min-height: 88px;
   }
 
   .quote-card-action,
   .quote-card button {
+    width: calc(100% - 36px);
+    margin-top: 20px;
+    margin-left: 18px;
+    margin-right: 18px;
+    display: flex;
     justify-content: center;
     text-align: center;
-    width: 100%;
   }
 
   .service-areas-hero {
@@ -3432,12 +3513,6 @@ h1 span,
 
   .location-feature-copy li {
     justify-content: center;
-  }
-
-  .location-feature-photo div {
-    position: static;
-    width: auto;
-    border-radius: 0 0 14px 14px;
   }
 
   .location-feature-photo img,
@@ -3926,5 +4001,47 @@ h1 span,
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media (max-width: 390px) {
+  .header-inner {
+    width: calc(100% - 18px);
+    grid-template-columns: auto 1fr auto;
+    gap: 6px;
+  }
+
+  .logo img {
+    width: 98px;
+  }
+
+  .phone-mini {
+    min-height: 36px;
+    padding: 7px 8px 7px 31px;
+  }
+
+  .phone-mini::before {
+    left: 6px;
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+
+  .phone-mini strong {
+    font-size: 12px;
+  }
+
+  .mobile-menu-button {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(32px, 10vw, 42px);
+  }
+
+  .quote-card-header h2 {
+    font-size: 22px;
   }
 }

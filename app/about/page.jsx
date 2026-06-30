@@ -46,8 +46,8 @@ export default function AboutPage() {
           <img src="/assets/about-rightway.png" alt="RightWay lawn and pest control team" />
           <div className="about-rating-card">
             <Star size={20} fill="currentColor" />
-            <strong>4.9 stars</strong>
-            <span>900+ Google reviews</span>
+            <strong>5 stars</strong>
+            <span>139+ Google reviews</span>
           </div>
         </div>
       </section>

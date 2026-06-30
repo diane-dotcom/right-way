@@ -167,7 +167,7 @@ export const serviceAreas = [
   'Ponte Vedra Beach',
   'St. Augustine',
   'Nocatee',
-  'Silverleaf',
+  'Silver Leaf',
   'St. Johns County',
   'Jacksonville Beaches',
 ];
@@ -197,6 +197,10 @@ export function getService(slug) {
 export function getLocation(slug) {
   if (slug === 'ponte-verde') {
     return locations.find((location) => location.slug === 'ponte-vedra');
+  }
+
+  if (slug === 'silverleaf') {
+    return locations.find((location) => location.slug === 'silver-leaf');
   }
 
   return locations.find((location) => location.slug === slug);

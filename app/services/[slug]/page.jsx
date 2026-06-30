@@ -75,24 +75,32 @@ export default async function ServicePage({ params }) {
               <h2>Request {service.shortTitle}</h2>
               <p>Fast scheduling from a local, veteran-owned team serving Northeast Florida.</p>
             </div>
-            <label>
-              What Do You Need?
-              <select defaultValue={service.shortTitle}>
-                {services.map((item) => <option key={item.slug}>{item.shortTitle}</option>)}
-              </select>
-            </label>
-            <label>
-              Full Name
-              <input type="text" />
-            </label>
-            <label>
-              Phone
-              <input type="tel" />
-            </label>
-            <label>
-              Address
-              <input type="text" />
-            </label>
+            <div className="quote-card-fields">
+              <label>
+                <span>First Name <b>*</b></span>
+                <input type="text" autoComplete="given-name" />
+              </label>
+              <label>
+                <span>Last Name <b>*</b></span>
+                <input type="text" autoComplete="family-name" />
+              </label>
+              <label>
+                <span>Email <b>*</b></span>
+                <input type="email" autoComplete="email" />
+              </label>
+              <label>
+                <span>Phone Number <b>*</b></span>
+                <input type="tel" autoComplete="tel" />
+              </label>
+              <label className="wide-field">
+                <span>Street Address 1 <b>*</b></span>
+                <input type="text" autoComplete="street-address" />
+              </label>
+              <label className="wide-field">
+                <span>How can we help?</span>
+                <textarea rows="4" />
+              </label>
+            </div>
             <a className="quote-card-action" href={quoteUrl} target="_blank" rel="noreferrer">Get My Free Quote</a>
             <p className="fine-print">Licensed & insured · No-obligation quote</p>
           </form>

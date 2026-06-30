@@ -52,7 +52,6 @@ export function Header() {
         </nav>
         <div className="header-cta">
           <a className="phone-mini" href="tel:9042906400">
-            <span>24/7 Emergency</span>
             <strong>904-290-6400</strong>
           </a>
           <a className="quote-button" href="/#quote">Get Free Quote</a>
@@ -67,7 +66,7 @@ export function ReviewsStrip() {
     <a className="reviews-strip" href="https://www.google.com/maps?cid=7920884762115137041" target="_blank" rel="noreferrer">
       <GoogleLogo />
       <strong>Veteran-Owned Lawn & Pest Control</strong>
-      <span>Rated 4.9 stars based on 900+ reviews</span>
+      <span>Rated 5 stars based on 139+ reviews</span>
     </a>
   );
 }
@@ -115,11 +114,11 @@ export function GoogleReviews() {
         <h2 id="rightway-google-reviews-title">See What Our <span>Customers</span> Are Saying</h2>
         <div className="rightway-reviews-divider" aria-hidden="true" />
         <div className="rightway-reviews-score">
-          <strong>4.9</strong>
+          <strong>5.0</strong>
           <Stars />
           <GoogleLogo />
         </div>
-        <p className="rightway-reviews-count">based on <strong>900+</strong> reviews</p>
+        <p className="rightway-reviews-count">based on <strong>139+</strong> reviews</p>
       </div>
 
       <div className="rightway-review-cards">

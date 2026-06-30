@@ -84,24 +84,32 @@ export default async function LocationPage({ params }) {
                 <h2>Request {location.name} Service</h2>
                 <p>Fast scheduling from a local, veteran-owned team serving {location.name} and Northeast Florida.</p>
               </div>
-              <label>
-                What Do You Need?
-                <select defaultValue="Pest Control">
-                  {services.map((service) => <option key={service.slug}>{service.shortTitle}</option>)}
-                </select>
-              </label>
-              <label>
-                Full Name
-                <input type="text" />
-              </label>
-              <label>
-                Phone
-                <input type="tel" />
-              </label>
-              <label>
-                Address
-                <input type="text" />
-              </label>
+              <div className="quote-card-fields">
+                <label>
+                  <span>First Name <b>*</b></span>
+                  <input type="text" autoComplete="given-name" />
+                </label>
+                <label>
+                  <span>Last Name <b>*</b></span>
+                  <input type="text" autoComplete="family-name" />
+                </label>
+                <label>
+                  <span>Email <b>*</b></span>
+                  <input type="email" autoComplete="email" />
+                </label>
+                <label>
+                  <span>Phone Number <b>*</b></span>
+                  <input type="tel" autoComplete="tel" />
+                </label>
+                <label className="wide-field">
+                  <span>Street Address 1 <b>*</b></span>
+                  <input type="text" autoComplete="street-address" />
+                </label>
+                <label className="wide-field">
+                  <span>How can we help?</span>
+                  <textarea rows="4" />
+                </label>
+              </div>
               <a className="quote-card-action" href={quoteUrl} target="_blank" rel="noreferrer">Get My Free Quote</a>
               <p className="fine-print">Licensed & insured · No-obligation quote</p>
             </form>
@@ -137,14 +145,7 @@ export default async function LocationPage({ params }) {
               </ul>
             </div>
             <div className="location-feature-photo">
-              <img src="/assets/home-hero-hd.png" alt={`${location.name} service area`} />
-              <div>
-                <strong>Top Pest Challenges in {location.name}</strong>
-                <span>Ant infestations year-round</span>
-                <span>High humidity attracts roaches</span>
-                <span>Termite activity in warm, wet climates</span>
-                <span>Mosquito activity after storms</span>
-              </div>
+              <img src="/assets/right-way-truck.png" alt={`RightWay service truck in ${location.name}`} />
             </div>
           </section>
 
@@ -185,8 +186,8 @@ export default async function LocationPage({ params }) {
               <h2>{location.name}, FL</h2>
               <p>RightWay proudly serves {location.name} and nearby communities with responsive lawn and pest control service backed by local knowledge and reliable scheduling.</p>
               <div className="location-stats-row">
-                <span><GoogleLogo /><strong>900+</strong> Google reviews</span>
-                <span><Star size={18} fill="currentColor" /><strong>4.9</strong> local rating</span>
+                <span><GoogleLogo /><strong>139+</strong> Google reviews</span>
+                <span><Star size={18} fill="currentColor" /><strong>5.0</strong> local rating</span>
                 <span><Headphones size={19} /><strong>24/7</strong> support</span>
               </div>
             </div>
@@ -268,24 +269,32 @@ export default async function LocationPage({ params }) {
               <h2>Request {location.name} Service</h2>
               <p>Fast scheduling from a local, veteran-owned team serving {location.name} and Northeast Florida.</p>
             </div>
-            <label>
-              What Do You Need?
-              <select defaultValue="Pest Control">
-                {services.map((service) => <option key={service.slug}>{service.shortTitle}</option>)}
-              </select>
-            </label>
-            <label>
-              Full Name
-              <input type="text" />
-            </label>
-            <label>
-              Phone
-              <input type="tel" />
-            </label>
-            <label>
-              Address
-              <input type="text" />
-            </label>
+            <div className="quote-card-fields">
+              <label>
+                <span>First Name <b>*</b></span>
+                <input type="text" autoComplete="given-name" />
+              </label>
+              <label>
+                <span>Last Name <b>*</b></span>
+                <input type="text" autoComplete="family-name" />
+              </label>
+              <label>
+                <span>Email <b>*</b></span>
+                <input type="email" autoComplete="email" />
+              </label>
+              <label>
+                <span>Phone Number <b>*</b></span>
+                <input type="tel" autoComplete="tel" />
+              </label>
+              <label className="wide-field">
+                <span>Street Address 1 <b>*</b></span>
+                <input type="text" autoComplete="street-address" />
+              </label>
+              <label className="wide-field">
+                <span>How can we help?</span>
+                <textarea rows="4" />
+              </label>
+            </div>
             <a className="quote-card-action" href={quoteUrl} target="_blank" rel="noreferrer">Get My Free Quote</a>
             <p className="fine-print">Licensed & insured · No-obligation quote</p>
           </form>

@@ -39,7 +39,7 @@ export default function Home() {
         <div className="hero-inner">
           <div className="hero-copy">
             <p className="eyebrow">Your Local Lawn & Pest Experts • Veteran-Owned</p>
-            <h1>Northeast Florida&apos;s Trusted <span>Lawn & Pest Control</span> Team</h1>
+            <h1>Top-Rated Lawn and Pest Control in Northeast Florida</h1>
             <p className="hero-text">
               From stubborn weeds to unwanted pests, RightWay helps homeowners across St. Johns County, Ponte Vedra, Nocatee,
               and surrounding communities enjoy healthier lawns and more comfortable homes.
@@ -60,24 +60,32 @@ export default function Home() {
               <h2>Request Your Service</h2>
               <p>Fast scheduling from a local, veteran-owned team serving Northeast Florida.</p>
             </div>
-            <label>
-              What Do You Need?
-              <select defaultValue="Pest Control">
-                {services.map((service) => <option key={service.slug}>{service.shortTitle}</option>)}
-              </select>
-            </label>
-            <label>
-              Full Name
-              <input type="text" />
-            </label>
-            <label>
-              Phone
-              <input type="tel" />
-            </label>
-            <label>
-              Address
-              <input type="text" />
-            </label>
+            <div className="quote-card-fields">
+              <label>
+                <span>First Name <b>*</b></span>
+                <input type="text" autoComplete="given-name" />
+              </label>
+              <label>
+                <span>Last Name <b>*</b></span>
+                <input type="text" autoComplete="family-name" />
+              </label>
+              <label>
+                <span>Email <b>*</b></span>
+                <input type="email" autoComplete="email" />
+              </label>
+              <label>
+                <span>Phone Number <b>*</b></span>
+                <input type="tel" autoComplete="tel" />
+              </label>
+              <label className="wide-field">
+                <span>Street Address 1 <b>*</b></span>
+                <input type="text" autoComplete="street-address" />
+              </label>
+              <label className="wide-field">
+                <span>How can we help?</span>
+                <textarea rows="4" />
+              </label>
+            </div>
             <a className="quote-card-action" href={homeQuoteUrl} target="_blank" rel="noreferrer">Get My Free Quote</a>
             <p className="fine-print">Licensed & insured · No-obligation quote</p>
           </form>
@@ -87,7 +95,7 @@ export default function Home() {
           <span>Veteran Owned</span>
           <span>Locally Operated</span>
           <span>Free Service Callbacks</span>
-          <span>900+ Google Reviews</span>
+          <span>139+ Google Reviews</span>
           <span>St. Johns County & Surrounding Areas</span>
         </section>
       </section>
@@ -98,7 +106,7 @@ export default function Home() {
         <ul className="why-list">
           <li><strong>Veteran-Owned Values</strong> We show up on time, do quality work, and treat customers with respect.</li>
           <li><strong>Local Expertise</strong> We understand Northeast Florida pest and lawn challenges.</li>
-          <li><strong>Higher-Touch Service</strong> You are never just another stop on a route.</li>
+          <li><strong>High Touch Service</strong> You are never just another stop on a route.</li>
           <li><strong>Free Callbacks</strong> Need additional attention? We come back and make it right.</li>
         </ul>
       </section>
