@@ -122,7 +122,7 @@ export function GoogleReviews() {
       </div>
 
       <div className="rightway-review-cards">
-        {rightWayReviews.map((review) => (
+        {rightWayReviews.slice(0, 4).map((review) => (
           <a className="rightway-review-card" href={googleReviewsUrl} target="_blank" rel="noreferrer" key={review.name}>
             <div className="rightway-review-card-top">
               <span className="rightway-review-avatar">{review.initials}</span>

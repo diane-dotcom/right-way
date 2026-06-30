@@ -34,7 +34,7 @@ export default function Home() {
       <Header />
       <ReviewsStrip />
 
-      <section className="hero" id="top">
+      <section className="hero home-hero" id="top">
         <div className="hero-overlay" />
         <div className="hero-inner">
           <div className="hero-copy">
