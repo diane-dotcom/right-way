@@ -467,7 +467,7 @@ img {
   min-height: 840px;
   padding: 95px 0 64px;
   background:
-    linear-gradient(90deg, rgba(2, 18, 34, 0.78), rgba(1, 58, 114, 0.32) 44%, rgba(5, 5, 5, 0.1)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.32) 48%, rgba(0, 0, 0, 0.08)),
     url('/assets/home-hero-hd.png') center / cover;
   overflow: hidden;
 }
@@ -856,7 +856,7 @@ h1 span,
 .service-page-hero {
   min-height: 720px;
   background:
-    linear-gradient(90deg, rgba(2, 18, 34, 0.94), rgba(1, 58, 114, 0.74) 46%, rgba(5, 5, 5, 0.28)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.44) 46%, rgba(0, 0, 0, 0.18)),
     var(--service-hero-image, url('/assets/pest-control-hero.png')) center / cover;
 }
 
@@ -1176,11 +1176,7 @@ h1 span,
   gap: 46px;
   align-items: center;
   padding: 52px;
-  background:
-    radial-gradient(circle at 8% 12%, rgba(7, 83, 199, 0.2), transparent 28%),
-    radial-gradient(circle at 82% 0%, rgba(213, 4, 14, 0.08), transparent 24%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(226, 241, 255, 0.82)),
-    #f4f9ff;
+  background: #fff;
   border: 1px solid #dfe8f2;
   border-radius: 34px;
   box-shadow: 0 26px 70px rgba(1, 58, 114, 0.13);
@@ -1191,8 +1187,8 @@ h1 span,
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(7, 83, 199, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(7, 83, 199, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(7, 25, 41, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 25, 41, 0.035) 1px, transparent 1px);
   background-size: 34px 34px;
   mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.55), transparent 70%);
   pointer-events: none;
@@ -1205,7 +1201,7 @@ h1 span,
   bottom: -130px;
   width: 360px;
   height: 360px;
-  background: rgba(7, 83, 199, 0.14);
+  background: rgba(7, 25, 41, 0.06);
   border-radius: 999px;
   pointer-events: none;
 }
@@ -1323,8 +1319,8 @@ h1 span,
 }
 
 .service-areas-map-visual {
-  position: relative;
-  min-height: 620px;
+  display: grid;
+  min-height: 0;
   overflow: hidden;
   border: 1px solid #dce7f3;
   border-radius: 28px;
@@ -1334,8 +1330,8 @@ h1 span,
 .service-areas-map-visual > img,
 .service-areas-map-visual > iframe {
   width: 100%;
-  height: 100%;
-  min-height: 620px;
+  height: 520px;
+  min-height: 0;
   border: 0;
 }
 
@@ -1345,17 +1341,14 @@ h1 span,
 }
 
 .service-areas-business-card {
-  position: absolute;
-  top: 26%;
-  right: 28px;
-  width: min(360px, calc(100% - 56px));
+  position: static;
+  width: 100%;
   display: grid;
   gap: 12px;
-  padding: 24px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid #e1e7ef;
-  border-radius: 20px;
-  box-shadow: 0 22px 48px rgba(4, 26, 52, 0.2);
+  padding: 22px 24px;
+  background: #fff;
+  border-top: 1px solid #e1e7ef;
+  box-shadow: none;
 }
 
 .service-areas-business-card img {
@@ -1974,7 +1967,7 @@ h1 span,
   place-items: center;
   text-align: center;
   background:
-    linear-gradient(90deg, rgba(3, 10, 20, 0.9), rgba(1, 58, 114, 0.68), rgba(3, 10, 20, 0.62)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.58)),
     var(--service-hero-image, url('/assets/pest-control-hero.png')) center / cover;
 }
 
@@ -3050,16 +3043,16 @@ h1 span,
     align-items: flex-start;
     justify-content: flex-start;
     gap: 0;
-    padding-top: 12px;
+    padding-top: 6px;
     border-top: 1px solid rgba(7, 25, 41, 0.1);
   }
 
   .nav > a,
   .nav-trigger {
     width: 100%;
-    min-height: 44px;
+    min-height: 34px;
     justify-content: space-between;
-    padding: 0 2px;
+    padding: 7px 2px;
     color: inherit;
     background: transparent;
     border: 0;
@@ -3096,9 +3089,9 @@ h1 span,
     max-height: none;
     display: none;
     margin-top: 0;
-    margin-bottom: 8px;
-    padding: 8px;
-    gap: 2px;
+    margin-bottom: 4px;
+    padding: 6px;
+    gap: 1px;
     background: #071929;
     border: 0;
     border-radius: 0;
@@ -3116,7 +3109,7 @@ h1 span,
 
   .nav-menu a {
     display: block;
-    padding: 11px 12px;
+    padding: 8px 10px;
     color: #fff;
     background: transparent;
     border-radius: 8px;
@@ -3174,7 +3167,11 @@ h1 span,
   .service-areas-map-visual,
   .service-areas-map-visual > img,
   .service-areas-map-visual > iframe {
-    min-height: 520px;
+    min-height: 0;
+  }
+
+  .service-areas-map-visual > iframe {
+    height: 480px;
   }
 
   .location-service-cards {
@@ -3306,7 +3303,7 @@ h1 span,
     min-height: 0;
     padding: 48px 0 70px;
     background:
-      linear-gradient(180deg, rgba(2, 18, 34, 0.78), rgba(1, 58, 114, 0.34) 55%, rgba(5, 5, 5, 0.22)),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0.3) 55%, rgba(0, 0, 0, 0.18)),
       url('/assets/home-hero-hd.png') center / cover;
   }
 
@@ -3475,13 +3472,18 @@ h1 span,
 
   .service-areas-map-visual,
   .service-areas-map-visual > img {
-    min-height: 420px;
+    min-height: 0;
+  }
+
+  .service-areas-map-visual > iframe {
+    height: 360px;
   }
 
   .service-areas-business-card {
-    position: static;
     width: auto;
-    margin: -110px 16px 18px;
+    margin: 0;
+    padding: 18px;
+    text-align: left;
   }
 
   .location-service-cards,
