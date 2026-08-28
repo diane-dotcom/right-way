@@ -167,9 +167,12 @@ export const serviceAreas = [
   'Ponte Vedra Beach',
   'St. Augustine',
   'Nocatee',
-  'Silver Leaf',
+  'Silverleaf',
   'St. Johns County',
   'Jacksonville Beaches',
+  'Rivertown',
+  'Julington Creek',
+  'World Golf Village',
 ];
 
 export const locations = serviceAreas.map((name) => ({
@@ -199,8 +202,8 @@ export function getLocation(slug) {
     return locations.find((location) => location.slug === 'ponte-vedra');
   }
 
-  if (slug === 'silverleaf') {
-    return locations.find((location) => location.slug === 'silver-leaf');
+  if (slug === 'silver-leaf') {
+    return locations.find((location) => location.slug === 'silverleaf');
   }
 
   return locations.find((location) => location.slug === slug);
