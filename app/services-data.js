@@ -187,6 +187,7 @@ export const footerLinks = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
   { label: 'Services', href: '/#services' },
+  { label: 'Soil Restore', href: 'https://soilrestore.rightwaypest.com' },
   { label: 'Service Areas', href: '/service-areas' },
   { label: 'Review', href: '/#reviews' },
   { label: 'Guarantee', href: '/about#guarantee' },
