@@ -178,7 +178,7 @@ export default async function ServicePage({ params }) {
       <section className="areas service-areas-block">
         <div className="areas-copy">
           <p className="section-kicker">Service Areas</p>
-          <h2>Serving St. Johns County and Surrounding Communities</h2>
+          <h2>Serving Duval and St. Johns County</h2>
           <p>RightWay provides {service.shortTitle.toLowerCase()} service across Northeast Florida with local knowledge and responsive scheduling.</p>
           <AreaTags areas={serviceAreas} />
         </div>
