@@ -1,9 +1,9 @@
 export const services = [
-  {
+   {
     slug: 'pest-control',
     title: 'Pest Control',
     shortTitle: 'Pest Control',
-    image: '/assets/pest-control.jpg',
+    image: '/assets/pest-control-hero.png',
     description:
       'Keep ants, spiders, roaches, and other unwanted pests out of your home with reliable treatments and proactive protection.',
     eyebrow: 'Reliable pest protection',
