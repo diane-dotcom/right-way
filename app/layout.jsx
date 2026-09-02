@@ -1,4 +1,5 @@
 import './globals.css';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 export const metadata = {
   title: 'RightWay Lawn & Pest Control',
@@ -12,8 +13,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+  <html lang="en">
+    <GoogleTagManager gtmId="GTM-P9N4SVH8" />
+    <body>{children}</body>
+  </html>
   );
 }
