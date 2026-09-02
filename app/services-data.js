@@ -1,9 +1,9 @@
 export const services = [
-  {
+   {
     slug: 'pest-control',
     title: 'Pest Control',
     shortTitle: 'Pest Control',
-    image: '/assets/pest-control.jpg',
+    image: '/assets/pest-control-hero.png',
     description:
       'Keep ants, spiders, roaches, and other unwanted pests out of your home with reliable treatments and proactive protection.',
     eyebrow: 'Reliable pest protection',
@@ -167,9 +167,12 @@ export const serviceAreas = [
   'Ponte Vedra Beach',
   'St. Augustine',
   'Nocatee',
-  'Silver Leaf',
+  'Silverleaf',
   'St. Johns County',
   'Jacksonville Beaches',
+  'Rivertown',
+  'Julington Creek',
+  'World Golf Village',
 ];
 
 export const locations = serviceAreas.map((name) => ({
@@ -184,6 +187,7 @@ export const footerLinks = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
   { label: 'Services', href: '/#services' },
+  { label: 'Soil Restore', href: 'https://soilrestore.rightwaypest.com' },
   { label: 'Service Areas', href: '/service-areas' },
   { label: 'Review', href: '/#reviews' },
   { label: 'Guarantee', href: '/about#guarantee' },
@@ -199,8 +203,8 @@ export function getLocation(slug) {
     return locations.find((location) => location.slug === 'ponte-vedra');
   }
 
-  if (slug === 'silverleaf') {
-    return locations.find((location) => location.slug === 'silver-leaf');
+  if (slug === 'silver-leaf') {
+    return locations.find((location) => location.slug === 'silverleaf');
   }
 
   return locations.find((location) => location.slug === slug);

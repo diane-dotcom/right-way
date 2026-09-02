@@ -37,6 +37,7 @@ export function Header() {
               {services.map((service) => (
                 <a key={service.slug} href={`/services/${service.slug}`}>{service.shortTitle}</a>
               ))}
+              <a href="https://soilrestore.rightwaypest.com" target="_blank" rel="noreferrer">Soil Restore</a>
             </div>
           </div>
           <div className="nav-dropdown">
@@ -166,6 +167,7 @@ export function Footer() {
         <div>
           <h3>Services</h3>
           {services.map((service) => <a key={service.slug} href={`/services/${service.slug}`}>{service.shortTitle}</a>)}
+          <a href="https://soilrestore.rightwaypest.com" target="_blank" rel="noreferrer">Soil Restore</a>
         </div>
         <div>
           <h3>Service Areas</h3>
