@@ -3,8 +3,7 @@ import { Footer, GoogleReviews, Header, ReviewsStrip } from './components';
 import { AreaTags } from './area-tags';
 import { FaqList } from './faq-list';
 import { rightWayMapEmbedUrl, serviceAreas, services } from './services-data';
-
-const homeQuoteUrl = 'https://wa.me/19042906400?text=Hi%20RightWay%2C%20I%20would%20like%20a%20free%20quote.';
+import { QuoteForm } from './quote-form';
 
 const homeTrustBadges = [
   { label: 'Veteran-Owned', icon: BadgeCheck },
@@ -62,40 +61,7 @@ export default function Home() {
             </div>
           </div>
 
-          <form className="quote-card" id="quote">
-            <div className="quote-card-header">
-              <h2>Request Your Service</h2>
-              <p>Fast scheduling from a local, veteran-owned team serving Northeast Florida.</p>
-            </div>
-            <div className="quote-card-fields">
-              <label>
-                <span>First Name <b>*</b></span>
-                <input type="text" autoComplete="given-name" />
-              </label>
-              <label>
-                <span>Last Name <b>*</b></span>
-                <input type="text" autoComplete="family-name" />
-              </label>
-              <label>
-                <span>Email <b>*</b></span>
-                <input type="email" autoComplete="email" />
-              </label>
-              <label>
-                <span>Phone Number <b>*</b></span>
-                <input type="tel" autoComplete="tel" />
-              </label>
-              <label className="wide-field">
-                <span>Street Address 1 <b>*</b></span>
-                <input type="text" autoComplete="street-address" />
-              </label>
-              <label className="wide-field">
-                <span>How can we help?</span>
-                <textarea rows="4" />
-              </label>
-            </div>
-            <a className="quote-card-action" href={homeQuoteUrl} target="_blank" rel="noreferrer">Get My Free Quote</a>
-            <p className="fine-print">Licensed & insured · No-obligation quote</p>
-          </form>
+          <QuoteForm title="Request a Free Quote" subtitle="Fast scheduling from a local, veteran-owned team serving Northeast Florida." />
         </div>
 
         <section className="trust-bar" id="about" aria-label="Trust markers">

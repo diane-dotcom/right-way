@@ -4,6 +4,7 @@ import { AreaTags } from '../../area-tags';
 import { Footer, GoogleLogo, Header } from '../../components';
 import { FaqList } from '../../faq-list';
 import { getLocation, locations, rightWayMapEmbedUrl, serviceAreas, services } from '../../services-data';
+import { QuoteForm } from '../../quote-form';
 
 const serviceIcons = [Bug, Sprout, ShieldCheck, Waves, Home, BadgeCheck];
 const locationTrustBadges = [
@@ -57,7 +58,6 @@ export default async function LocationPage({ params }) {
     notFound();
   }
 
-  const quoteUrl = `https://wa.me/19042906400?text=${encodeURIComponent(`Hi RightWay, I would like a free quote for ${location.name}.`)}`;
   const locationFaqs = getLocationFaqs(location.name);
 
   if (location) {
@@ -84,40 +84,7 @@ export default async function LocationPage({ params }) {
               </div>
             </div>
 
-            <form className="quote-card" id="quote">
-              <div className="quote-card-header">
-                <h2>Request {location.name} Service</h2>
-                <p>Fast scheduling from a local, veteran-owned team serving {location.name} and Northeast Florida.</p>
-              </div>
-              <div className="quote-card-fields">
-                <label>
-                  <span>First Name <b>*</b></span>
-                  <input type="text" autoComplete="given-name" />
-                </label>
-                <label>
-                  <span>Last Name <b>*</b></span>
-                  <input type="text" autoComplete="family-name" />
-                </label>
-                <label>
-                  <span>Email <b>*</b></span>
-                  <input type="email" autoComplete="email" />
-                </label>
-                <label>
-                  <span>Phone Number <b>*</b></span>
-                  <input type="tel" autoComplete="tel" />
-                </label>
-                <label className="wide-field">
-                  <span>Street Address 1 <b>*</b></span>
-                  <input type="text" autoComplete="street-address" />
-                </label>
-                <label className="wide-field">
-                  <span>How can we help?</span>
-                  <textarea rows="4" />
-                </label>
-              </div>
-              <a className="quote-card-action" href={quoteUrl} target="_blank" rel="noreferrer">Get My Free Quote</a>
-              <p className="fine-print">Licensed & insured · No-obligation quote</p>
-            </form>
+            <QuoteForm title={`Request ${location.name} Service`} subtitle={`Fast scheduling from a local, veteran-owned team serving ${location.name} and Northeast Florida.`} />
           </div>
         </section>
 
